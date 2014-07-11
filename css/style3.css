@@ -1,0 +1,57 @@
+#menu {
+	background: rgba(23, 23, 234, 0.2);
+	float: left;
+	margin-right: 20px;
+	position: relative;
+	width: 20%;
+}
+
+#menu li{
+	color: darkBlue;
+	cursor: pointer;
+	font-size: 24px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	line-height: 2em;
+	list-style: none;
+}
+
+table {
+	background: #eeeeff;
+	color: darkBlue;
+	font-size: 20px;
+}
+
+tr {
+	cursor: pointer;
+}
+
+tr:nth-child(odd):not(:first-child) {
+	background: #eeeeee;
+}
+
+tr:nth-child(even) {
+	background: #eeffff;
+}
+
+td {
+	padding: 2em;
+}
+
+#logoutForm {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+#empty {
+	color: red;
+	font-size: 24px;
+}
+
+#logout {
+	font-size: 16px;
+	padding: 10px;
+}
+
+	

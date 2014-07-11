@@ -1,0 +1,93 @@
+
+	h2
+	{
+		font-size: 1.5em;
+		letter-spacing: 8px;
+		font-weight: 400;
+		text-transform: uppercase;
+		margin:3 0 2 0;
+	}
+	
+
+		.image
+		{
+			border: 0;
+			display: block;
+				margin: 10 1em 4em 1em;
+				width:0 0 auto;
+		}
+
+
+		
+			table.default
+			{
+				
+				width: 100%;
+			}
+				table.default td
+				{
+					padding: 0.75em 1.25em 0.75em 1.25em;
+					max-width: 100%;
+					border-radius:8px;
+				}
+				
+				td.carname
+				{
+				
+					border-top:solid 1px #000;
+					border-bottom:solid 1px #000;
+					text-shadow: 5px 5px 9px #FF5505;
+					border-radius:0px !important;
+				}
+				td.carname:hover
+				{
+					zoom:104%;
+					-moz-transform: scale(1.05);
+				}
+				td.comp
+				{
+					font-size: 1em;
+					letter-spacing: 8px;
+					font-weight: 200;
+					text-transform: uppercase;
+					line-height: 2em;
+				}
+				table.default img
+				{
+				max-width: 95%;
+				}
+
+
+.mycontainer
+{
+	margin: 1em 5% 0;
+	padding: 1em 3em;
+	font: 100%/1.4 tahoma, arial, helvetica, lucida sans, sans-serif;
+	border: 1px solid #000;
+	background-size: 100% 100%;
+	position: relative;
+	
+	min-width:800px;
+	min-height:800px;
+	
+}
+
+
+.mydiv
+{
+	margin: 3em 0em;
+	font: 100%/1.5 tahoma, arial, helvetica, lucida sans, sans-serif;
+	border: 1px solid #999;
+	background: #fff; 
+	position: relative;
+	max-width: 99%;  
+	min-height:100%;
+	box-shadow: 5px 6px 20px #ffffaa;
+	 
+}
+
+.error {
+	color: red;
+	font-size: 16px;
+	text-align: center;
+}
