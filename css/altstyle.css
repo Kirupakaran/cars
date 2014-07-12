@@ -9,4 +9,5 @@ html, body {
 	background: url(images/car.jpg);
 	background-position: covers;
 	height: 100%;
+	min-height: 100%;
 }

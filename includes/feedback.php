@@ -1,59 +1,57 @@
-<?php 
-$suspect=false; 
-$missing=array(); 
-$errors=array(); 
-$pattern='/Content-Type:|Bcc:|Cc:/i' ; 
-isSuspect($_POST, $pattern, $suspect); 
-$required=array( "name", "email", "message"); 
-$to="" ; 
-$subject="feedback" ; 
-$headers="" ; 
-function isSuspect($val, $pattern, &$suspect) { 
-	if (is_array($val)) { 
-		foreach ($val as $item) { 
-			isSuspect($item, $pattern, $suspect); 
-		} 
-	} 
-	else { 
-		if (preg_match($pattern, $val)) { 
-			$suspect=true; 
-		} 
-	} 
-} 
-if (!$suspect) { 
-	foreach ($_POST as $key=>$value) { 
-		$temp = is_array($value) ? $value : trim($value); 
-		if (empty($temp) && in_array($key, $required)) { 
-			$missing[] = $key; 
-		} 
-		${$key} = $temp; 
-	} 
-} 
-$mailSent = false; 
-if (!$suspect && !$missing) { 
-	$msg = ''; 
-	foreach($required as $item) { 
-		if (isset(${$item}) && !empty(${$item})) { 
-			$val = ${$item}; 
-		} 
-		else { 
-			$val = 'Not selected'; 
-		} 
-		if (is_array($val)) { 
-			$val = implode(', ', $val); 
-		} 
-		$item = str_replace(array('_', '-'), ' ', $item); 
-		$msg .= ucfirst($item).": $val\r\n\r\n"; 
-	} 
-	$msg = wordwrap($msg, 70); 
-	$mailSent = mail($to, $subject, $msg, $headers); 
-	if (!$mailSent) { 
-		$errors['mailfail'] = true; 
-	} 
-} 
+<?php
+$suspect=false;
+$missing=array();
+$errors=array();
+$pattern='/Content-Type:|Bcc:|Cc:/i' ;
+isSuspect($_POST, $pattern, $suspect);
+$required=array( "name", "email", "message");
+$to="" ;
+$subject="feedback" ;
+$headers="" ;
+function isSuspect($val, $pattern, &$suspect) {
+	if (is_array($val)) {
+		foreach ($val as $item) {
+			isSuspect($item, $pattern, $suspect);
+		}
+	}
+	else {
+		if (preg_match($pattern, $val)) {
+			$suspect=true;
+		}
+	}
+}
+if (!$suspect) {
+	foreach ($_POST as $key=>$value) {
+		$temp = is_array($value) ? $value : trim($value);
+		if (empty($temp) && in_array($key, $required)) {
+			$missing[] = $key;
+		}
+		${$key} = $temp;
+	}
+}
+$mailSent = false;
+if (!$suspect && !$missing) {
+	$msg = '';
+	foreach($required as $item) {
+		if (isset(${$item}) && !empty(${$item})) {
+			$val = ${$item};
+		}
+		else {
+			$val = 'Not selected';
+		}
+		if (is_array($val)) {
+			$val = implode(', ', $val);
+		}
+		$item = str_replace(array('_', '-'), ' ', $item);
+		$msg .= ucfirst($item).": $val\r\n\r\n";
+	}
+	$msg = wordwrap($msg, 70);
+	$mailSent = mail($to, $subject, $msg, $headers);
+	if (!$mailSent) {
+		$errors['mailfail'] = true;
+	}
+}
 ?>
-<html>
-
 <body>
 	<form id="feedback" method="post" action="">
 		<div class="row half">
@@ -92,5 +90,3 @@ if (!$suspect && !$missing) {
 		<?php } ?>
 	</form>
 </body>
-
-</html>
