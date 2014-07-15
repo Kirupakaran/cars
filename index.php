@@ -3,13 +3,13 @@
 	<head>
 		<title>Petrol Vs Diesel Cars</title>
 		<!--<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/style2.css" />
+
 		<link href="css/dsstyle.css" rel="stylesheet" type="text/css" media="all" /> -->
 	<!--	<link rel="stylesheet" href="css/bootstrap.min.css" /> -->
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/style2.css" />
 		<script src="js/jquery.min.js"></script>
 		<script src="js/script.js"></script>
-		<script src="js/jquery.fittext.js"></script>
 	</head>
 	<body>
 	<div id="container">

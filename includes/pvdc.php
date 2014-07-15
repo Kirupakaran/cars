@@ -179,69 +179,71 @@ if(empty($missing)) {
 
 	$pageContents = <<< EOPAGE
 
-				<table class="comparison">
+			<table class="comparison">
 				<tr>
-				<table>
-					<tr>
-						<td colspan=2><img class="image" src=$src_p height=300 width=450/></td>
-					</tr>
-					<tr>
-						<td colspan=2 class="carname"><h2 align="center"> $name_p </h2></td>
-					</tr>
-					<tr>
-						<td>On Road Price</td><td>&#8377; $car_price_p </td>
-					</tr>
-					<tr>
-						<td>Fuel Type</td><td>Petrol </td>
-					</tr>
-					<tr>
-						<td>Mileage (kmpl)</td><td>$mileage_p </td>
-					</tr>
-					<tr>
-						<td >Petrol Savings for 2 years</td><td id="p2" valign="20">&#8377; $final_p[2] </td>
-					</tr>
-					<tr>
-						<td >Petrol Savings for 4 years</td><td id="p4">&#8377; $final_p[4] </td>
-					</tr>
-					<tr>
-						<td >Petrol Savings for 6 years</td><td id="p6">&#8377; $final_p[6] </td>
-					</tr>
-				</table>
+					<td>
+						<table>
+							<tr>
+								<td colspan=2><img class="image" src=$src_p height=300 width=450/></td>
+							</tr>
+							<tr>
+								<td colspan=2 class="carname"><h2 align="center"> $name_p </h2></td>
+							</tr>
+							<tr>
+								<td>On Road Price</td><td>&#8377; $car_price_p </td>
+							</tr>
+							<tr>
+								<td>Fuel Type</td><td>Petrol </td>
+							</tr>
+							<tr>
+								<td>Mileage (kmpl)</td><td>$mileage_p </td>
+							</tr>
+							<tr>
+								<td >Petrol Savings for 2 years</td><td id="p2" valign="20">&#8377; $final_p[2] </td>
+							</tr>
+							<tr>
+								<td >Petrol Savings for 4 years</td><td id="p4">&#8377; $final_p[4] </td>
+							</tr>
+							<tr>
+								<td >Petrol Savings for 6 years</td><td id="p6">&#8377; $final_p[6] </td>
+							</tr>
+						</table>
+					</td>
+					<td>
+						<table class="comparison">
+							<tr>
+								<td colspan=2><img class="image " src=$src_d height=300 width=450/></td>
+							</tr>
+							<tr>
+								<td colspan=2 class="carname"><h2 align="center">$name_d</h2></td>
+							</tr>
+							<tr>
+								<td>On Road Price</td><td>&#8377; $car_price_d </td>
+							</tr>
+							<tr>
+								<td>Fuel Type</td><td>Diesel</td>
+							</tr>
+							<tr>
+								<td>Mileage (kmpl)</td><td class="letterA">$mileage_d </td>
+							</tr>
+							<tr>
+								<td >Diesel Savings for 2 years</td><td id="d2">&#8377; $final_d[2] </td>
+							</tr>
+							<tr>
+								<td >Diesel Savings for 4 years</td><td id="d4">&#8377; $final_d[4] </td>
+							</tr>
+							<tr>
+								<td >Diesel Savings for 6 years</td><td id="d6">&#8377; $final_d[6] </td>
+							</tr>
+						</table>
+					</td>
 				</tr>
-				<tr>
-				<table class="comparison">
-					<tr>
-						<td colspan=2><img class="image " src=$src_d height=300 width=450/></td>
-					</tr>
-					<tr>
-						<td colspan=2 class="carname"><h2 align="center">$name_d</h2></td>
-					</tr>
-					<tr>
-						<td>On Road Price</td><td>&#8377; $car_price_d </td>
-					</tr>
-					<tr>
-						<td>Fuel Type</td><td>Diesel</td>
-					</tr>
-					<tr>
-						<td>Mileage (kmpl)</td><td class="letterA">$mileage_d </td>
-					</tr>
-					<tr>
-						<td >Diesel Savings for 2 years</td><td id="d2">&#8377; $final_d[2] </td>
-					</tr>
-					<tr>
-						<td >Diesel Savings for 4 years</td><td id="d4">&#8377; $final_d[4] </td>
-					</tr>
-					<tr>
-						<td >Diesel Savings for 6 years</td><td id="d6">&#8377; $final_d[6] </td>
-					</tr>
-				</table>
-				</tr>
-				</table>
-				<form id="contactdealerbuttonform" >
-				<input type="hidden" value="$car_id_d" name="car_id_d"/>
-				<input type="hidden" value="$car_id_p" name="car_id_p"/>
-				<input type="submit" class="button" id="contactdealer" value="Contact Dealer Now!" />
-				</form>
+			</table>
+			<form id="contactdealerbuttonform" >
+			<input type="hidden" value="$car_id_d" name="car_id_d"/>
+			<input type="hidden" value="$car_id_p" name="car_id_p"/>
+			<input type="submit" class="button" id="contactdealer" value="Contact Dealer Now!" />
+			</form>
 
 
 	<script>

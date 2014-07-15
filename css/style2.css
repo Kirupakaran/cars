@@ -22,12 +22,11 @@
 			.comparison
 			{
 				display: inline;
-				width: 5100%
+				width: 100%
 			}
 				.comparison td
 				{
 					padding: 0.75em 1.25em 0.75em 1.25em;
-					width: 25%;
 					border-radius:8px;
 				}
 
