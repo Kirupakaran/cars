@@ -7,7 +7,7 @@ $(window).load(function() {
 }
     if(h>600){
     h=h*15/100;
-   
+
     $( "#main" ).css({ "top" : h + "px" });
 	}
 });
@@ -25,7 +25,7 @@ $(window).resize(function() {
 	}
     if(h>600){
     h=h*15/100;
-   
+
     $( "#main" ).css({ "top" : h + "px" });
 	}
 });
@@ -41,7 +41,8 @@ $(document).ready(function() {
 			url: "http://localhost/pdc/includes/pvdc.php",
 			success: function(response) {
 				$('html,body').animate({ scrollTop: $('#cars').offset().top }, 700);
-				$('#cars').html(response);	
+				$('#cars').html(response);
+        $('#cars').css('display', 'block');
 			}
 		});
 		return false;
@@ -51,13 +52,13 @@ $(document).ready(function() {
 			alert("Please Select the values");
 		}
 	});
-		
+
 });
 
 $(function() {
       $("#go").click( function()
            {
-             $('html,body').animate({ scrollTop: $('#form').offset().top }, 'slow');
+             $('html,body').animate({ scrollTop: $('#form-section').offset().top }, 'slow');
            }
       );
 });

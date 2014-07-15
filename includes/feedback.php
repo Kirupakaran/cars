@@ -56,13 +56,13 @@ if (!$suspect && !$missing) {
 	<form id="feedback" method="post" action="">
 		<div class="row half">
 			<div class="6u">
-				<input type="text" class="text" name="name" placeholder="Name" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>/>
+				<input type="text" class="text block" name="name" placeholder="Name" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>/>
 				<?php if($missing&&in_array( 'name',$missing)){ ?>
 				<span class="error">Enter the name</span>
 				<?php } ?>
 			</div>
 			<div class="6u">
-				<input type="text" class="text" name="email" placeholder="Email" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>/>
+				<input type="text" class="text block" name="email" placeholder="Email" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>/>
 				<?php if($missing&&in_array( 'email',$missing)){ ?>
 				<span class="error">Enter the mail id</span>
 				<?php } ?>
@@ -70,7 +70,7 @@ if (!$suspect && !$missing) {
 		</div>
 		<div class="row half">
 			<div class="12u">
-				<textarea name="message" placeholder="Message" cols="40" rows="6" class="text" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>></textarea>
+				<textarea name="message" placeholder="Message" cols="40" rows="6" class="text block" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>></textarea>
 				<?php if($missing&&in_array( 'message',$missing)){ ?>
 				<span class="error">Enter the message</span>
 				<?php } ?>

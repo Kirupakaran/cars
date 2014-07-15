@@ -1,6 +1,6 @@
 html,
 body {
-	background: #fff;
+	background: #F2F3FF;
 	height: 100%;
 	width: 100%;
 	margin: 0;
@@ -23,31 +23,9 @@ body {
 	width: 100%;
 }
 
-/*
-.button {
-	background: white;
-	border-radius: 2em;
-	color: #000;
-	font-size: 24px;
-	padding: 1em 3em 1em 3em;
-	-moz-transition: background-color 0.35s ease-in-out, color 0.15s ease-in-out;
-	-webkit-transition: background-color 0.35s ease-in-out, color 0.15s ease-in-out;
-	-o-transition: background-color 0.35s ease-in-out, color 0.15s ease-in-out;
-	-ms-transition: background-color 0.35s ease-in-out, color 0.15s ease-in-out;
-	transition: background-color 0.35s ease-in-out, color 0.15s ease-in-out;
-}
-
-
-.button:hover {
-	background: rgba(255, 255, 255, 0.2) !important;
-	color: black;
-}
-*/
-
 #main {
 	background: rgba(0, 0, 15, .4);
 	margin: 0 auto;
-	margin-top: 10%;
 	overflow:hidden;
 	padding: 5em;
 	text-align: center;
@@ -69,56 +47,104 @@ body {
 	top: 2%;
 }
 
-#form {
-	margin: 1em 5%;
-	background: #fff;
-	background-image: url("images/bluebg.jpg");
-	background-size:100% 100%;
-	background-position: top left,top right;
-	background-repeat: no-repeat;
-	overflow: auto;
-	position: relative;
-	width: 90%;
-	min-width:900px;
-	min-height:700px;
+#form-section {
+	height: 90%;
 }
 
-#form form {
+#form {
+	background: white;
+	box-shadow: 0 0 7px 7px #ccc;
+	height: 90%;
+	margin: 0 auto;
+	margin-top: 35px;
+	overflow: auto;
+	width: 80%;
+}
 
-	background-position: bottom left, bottom right;
-	background-repeat: no-repeat, no-repeat;
+
+#form form {
 	font-size: 20px;
 	letter-spacing: 0.1em;
 	line-height: 2em;
 	margin: 0 10%;
 	margin-top: 40px;
+	position: relative;
+	width: 80%%;
+}
+
+#form form table {
+	width: 100%;
+}
+#form .button {
+	width: 30%;
+}
+
+#cars {
+	background: white;
+	box-shadow: 0 0 7px 7px #ccc;
+	display: none;
+	height: 90%;
+	margin: 0 auto;
+	margin-top: 35px;
+	overflow: auto;
 	width: 80%;
 }
 
-#form label {
-	padding: 0 2em 0 2em;
-}
-
-#form .button {
-}
-
 #feedbackdiv {
-
+	background: white;
+	box-shadow: 0 0 7px 7px #ddd;
 	font-size: 20px;
 	letter-spacing: 0.1em;
 	line-height: 2em;
-	margin: 0 10% 0;
-	width: 90%;
-	min-width:900px;
-
-
+	margin: 0 auto;
+	width: 80%;
 }
 
+#feedbackdiv h2 {
+	padding: 1em 0 0 2em;
+}
+
+#feedbackdiv form, #feedbackdiv p {
+	margin: 0 auto;
+	padding-bottom: 40px;
+	width: 80%;
+}
 
 #copyright {
 	color: #7c8081;
 	padding: 5em 0 5em 0;
 	text-align: center;
+}
+
+.button {
+	background: #22B422;
+	border-color: #22B422;
+	border-radius: 5px;
+	color: white;
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px;
+}
+
+.button:hover {
+	background: #4BD64B;
+	border-color: #4BD64B;
+	box-shadow: 0 0 2px 2px rgba(0, 250, 50, 0.3);
+}
+
+.block {
+	width: 100%;
+}
+
+.block-half {
+	display: inline;
+	width: 50%;
+}
+
+.text {
+	font-size: 25px;
+	padding: 15px;
 }
 
 /*

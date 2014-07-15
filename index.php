@@ -24,30 +24,31 @@
 		</div>
 		<!-- end of main -->
 		<!-- form -->
-		<div id="form">
-			<?php require('./includes/form.inc.php'); ?>
-		</div>
+		<section id="form-section">
+			<div id="form">
+				<?php require('./includes/form.inc.php'); ?>
+			</div>
+		</section>
 		<!-- end of form -->
 		<!-- cars comparison section -->
-
-		<div id="cars"></div>
+		<section id="cars-section">
+			<div id="cars"></div>
+		</section>
 
 		<!-- end of comparison -->
 		<!-- dealer search section -->
-
+		<section id="dealers-section">
 		<div id="dealers"></div>
-
+		</section>
 		<!-- end of dealer search -->
 		<!-- feedback section -->
-
-		<div id="feedbackdiv">
-			<header>
+		<section id="feedback-section">
+			<div id="feedbackdiv">
 				<h2>FEEDBACK</h2>
 				<p> We accept any suggestions,comments and queries that you may have.</p>
-			</header>
-			<?php require('./includes/feedback.php'); ?>
-		</div>
-
+				<?php require('./includes/feedback.php'); ?>
+			</div>
+		</section>
 		<!-- feedback end -->
 		<!-- footer -->
 

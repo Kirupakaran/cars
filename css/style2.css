@@ -7,7 +7,7 @@
 		text-transform: uppercase;
 		margin:3 0 2 0;
 	}
-	
+
 
 		.image
 		{
@@ -18,33 +18,33 @@
 		}
 
 
-		
-			table.default
+
+			.comparison
 			{
-				
-				width: 100%;
+				display: inline;
+				width: 5100%
 			}
-				table.default td
+				.comparison td
 				{
 					padding: 0.75em 1.25em 0.75em 1.25em;
-					max-width: 100%;
+					width: 25%;
 					border-radius:8px;
 				}
-				
-				td.carname
+
+				.comparison.carname
 				{
-				
+
 					border-top:solid 1px #000;
 					border-bottom:solid 1px #000;
 					text-shadow: 5px 5px 9px #FF5505;
 					border-radius:0px !important;
 				}
-				td.carname:hover
+				.comparison.carname:hover
 				{
 					zoom:104%;
 					-moz-transform: scale(1.05);
 				}
-				td.comp
+				.comparison.comp
 				{
 					font-size: 1em;
 					letter-spacing: 8px;
@@ -52,39 +52,12 @@
 					text-transform: uppercase;
 					line-height: 2em;
 				}
-				table.default img
+				.comparison img
 				{
 				max-width: 95%;
 				}
 
 
-.mycontainer
-{
-	margin: 1em 5% 0;
-	padding: 1em 3em;
-	font: 100%/1.4 tahoma, arial, helvetica, lucida sans, sans-serif;
-	border: 1px solid #000;
-	background-size: 100% 100%;
-	position: relative;
-	
-	min-width:800px;
-	min-height:800px;
-	
-}
-
-
-.mydiv
-{
-	margin: 3em 0em;
-	font: 100%/1.5 tahoma, arial, helvetica, lucida sans, sans-serif;
-	border: 1px solid #999;
-	background: #fff; 
-	position: relative;
-	max-width: 99%;  
-	min-height:100%;
-	box-shadow: 5px 6px 20px #ffffaa;
-	 
-}
 
 .error {
 	color: red;

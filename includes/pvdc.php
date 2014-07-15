@@ -11,13 +11,13 @@ if (mysqli_connect_errno())
 $errors = array();
 $missing = array();
 if(!empty($_POST)) {
-	$required=array( "kpd", "dpm","carbrand","carmodel","car_id_p","car_id_d","location"); 
-	foreach($_POST as $key=>$value) { 
-		$temp = is_array($value) ? $value : trim($value); 
-		if (empty($temp) && in_array($key, $required)) { 
-			$missing[] = $key; 
-		} 
-		${$key}=$temp; 
+	$required=array( "kpd", "dpm","carbrand","carmodel","car_id_p","car_id_d","location");
+	foreach($_POST as $key=>$value) {
+		$temp = is_array($value) ? $value : trim($value);
+		if (empty($temp) && in_array($key, $required)) {
+			$missing[] = $key;
+		}
+		${$key}=$temp;
 	}
 	if( $missing&&in_array( 'kpd',$missing)){
 		$errors[] = "Please enter the number of kilometers you're going to drive your car per day";
@@ -48,40 +48,40 @@ if(empty($missing)) {
 	}
 	else
 		$dpm=25; //Days / Month
-	
+
 	if (isset($_POST['kpd'])){
 		$kpd= mysqli_real_escape_string($con, trim($_POST['kpd']));
 	}
 	else
 		$kpd=50; //Kilometers Driven / Day
-		
+
 	if (isset($_POST['car_id_p'])){
 		$car_id_p= mysqli_real_escape_string($con, trim($_POST['car_id_p']));
 	}
 	else
 		$car_id_p=1;
-	
+
 	if (isset($_POST['car_id_d'])){
 		$car_id_d= mysqli_real_escape_string($con, trim($_POST['car_id_d']));
-	} 
+	}
 	else
 		$car_id_d=2;
 
 	if (isset($_POST['location'])){
 		$location= mysqli_real_escape_string($con, trim($_POST['location']));
-	} 
+	}
 	else
 		$location="Tamil Nadu";
-		
+
 	/*Obtaining fuel price from database */
 	$sql = mysqli_query($con,"SELECT * FROM fuelprice");
 	$row = mysqli_fetch_array($sql );
 	$dprice= $row['diesel'];
 	$pprice=$row['petrol'];
 
-	
+
 	/*For petrol car */
-	
+
 	$petrol_car_query = "SELECT * FROM cardetails WHERE car_id= ? ";
 	$stmt->prepare($petrol_car_query);
 	$stmt->bind_param('s', $car_id_p);
@@ -111,15 +111,15 @@ if(empty($missing)) {
 		$row = mysqli_fetch_array($data);
 		$car_price_p=$row['price'];
 	}
-	
-	
+
+
 	$fuel_price_per_day_p	=($kpd/$mileage_p)*$pprice;
 	$fuel_price_per_month_p	=$fuel_price_per_day_p*$dpm;
 	$fuel_price_per_year_p	=$fuel_price_per_month_p*12;
-	
-	
+
+
 	/*For diesel car */
-	
+
 	$diesel_car_query = "SELECT * FROM cardetails WHERE car_id = ? ";
 	$stmt->prepare($diesel_car_query);
 	$stmt->bind_param('s', $car_id_d);
@@ -128,7 +128,7 @@ if(empty($missing)) {
 	$diesel_car = mysqli_fetch_array($data);
 	$name_d=$diesel_car ['brand'];
 	$name_d.=" ".$diesel_car ['carmodel'];
-	$name_d.=" ".$diesel_car ['variant'];	
+	$name_d.=" ".$diesel_car ['variant'];
 	$car_price_d=$diesel_car['base_price'];
 	$mileage_d=$diesel_car['mileage'];
 	$src_d="data:image/jpeg;base64,".base64_encode( $diesel_car ['image'] );
@@ -150,18 +150,18 @@ if(empty($missing)) {
 		$row = mysqli_fetch_array($data);
 		$car_price_d=$row['price'];
 	}
-	
+
 	$fuel_price_per_day_d	=($kpd/$mileage_d)*$dprice;
 	$fuel_price_per_month_d	=$fuel_price_per_day_d*$dpm;
 	$fuel_price_per_year_d	=$fuel_price_per_month_d*12;
-	
-	
+
+
 	/*calculation using formula*/
 	$yearly_cost_p		= array();
 	$yearly_cost_d		= array();
 	$final_d 			= array();
 	$final_p 			= array();
-	
+
 	for($i=1;$i<=6;$i++)
 	{
 	$yearly_cost_p[$i]= $fuel_price_per_year_p*$i;
@@ -178,53 +178,72 @@ if(empty($missing)) {
 	mysqli_close($con);
 
 	$pageContents = <<< EOPAGE
-	
-			<div id="first" class="mycontainer">
-			
-				<table class="default">
-				<tr><td>
-				<div class="mydiv">
-				<table class="default">
-				<tr ><td colspan=2><img  class="image" src=$src_p height=300 width=450/></td> </tr>
-				<tr > <td colspan=2 class="carname"><h2 align="center"> $name_p </h2></td>
-				<tr><td>On Road Price</td><td>&#8377; $car_price_p </td> </tr>
-				<tr><td>Fuel Type</td><td>Petrol </td> </tr>
-				<tr><td>Mileage (kmpl)</td><td>$mileage_p </td> </tr>
-				<tr><td colspan=2 align="center" class="comp">Comparisons</td></tr>
-				<tr><td >Petrol Savings for 2 years</td><td id="p2" valign="20">&#8377; $final_p[2] </td> </tr>
-				<tr><td >Petrol Savings for 4 years</td><td id="p4">&#8377; $final_p[4] </td> </tr>
-				<tr><td >Petrol Savings for 6 years</td><td id="p6">&#8377; $final_p[6] </td> </tr>
-				</table>
-				</div>
-				
-				</td><td>
-				<div class="mydiv">
-				<table class="default">
-				<td colspan=2><img class="image " src=$src_d height=300 width=450/></tr>
-				<tr ><td colspan=2 class="carname"><h2 align="center">$name_d</h2></td></tr>
-				<tr><td>On Road Price</td><td>&#8377; $car_price_d </td> </tr>
-				<tr><td>Fuel Type</td><td>Diesel</td> </tr>
-				<tr><td>Mileage (kmpl)</td><td class="letterA">$mileage_d </td> </tr>
-				
-				<tr><td colspan=2 align="center" class="comp">Comparisons</td></tr>
-				<tr><td >Diesel Savings for 2 years</td><td id="d2">&#8377; $final_d[2] </td></tr>
-				<tr><td >Diesel Savings for 4 years</td><td id="d4">&#8377; $final_d[4] </td></tr>
-				<tr><td >Diesel Savings for 6 years</td><td id="d6">&#8377; $final_d[6] </td></tr>
-				</table>
-				</div>
 
-				</td></tr>
-				<tr><td colspan=2 align="center">
-				<form id="contactdealerbuttonform" >
-				<input type="hidden" value="$car_id_d" name="car_id_d"/> 
-				<input type="hidden" value="$car_id_p" name="car_id_p"/>
-				<input type="submit" class="button" id="contactdealer" value="Contact Dealer Now!" /></form></td></tr>
+				<table class="comparison">
+				<tr>
+				<table>
+					<tr>
+						<td colspan=2><img class="image" src=$src_p height=300 width=450/></td>
+					</tr>
+					<tr>
+						<td colspan=2 class="carname"><h2 align="center"> $name_p </h2></td>
+					</tr>
+					<tr>
+						<td>On Road Price</td><td>&#8377; $car_price_p </td>
+					</tr>
+					<tr>
+						<td>Fuel Type</td><td>Petrol </td>
+					</tr>
+					<tr>
+						<td>Mileage (kmpl)</td><td>$mileage_p </td>
+					</tr>
+					<tr>
+						<td >Petrol Savings for 2 years</td><td id="p2" valign="20">&#8377; $final_p[2] </td>
+					</tr>
+					<tr>
+						<td >Petrol Savings for 4 years</td><td id="p4">&#8377; $final_p[4] </td>
+					</tr>
+					<tr>
+						<td >Petrol Savings for 6 years</td><td id="p6">&#8377; $final_p[6] </td>
+					</tr>
 				</table>
-				
-			</div>
-			
-		
-			
+				</tr>
+				<tr>
+				<table class="comparison">
+					<tr>
+						<td colspan=2><img class="image " src=$src_d height=300 width=450/></td>
+					</tr>
+					<tr>
+						<td colspan=2 class="carname"><h2 align="center">$name_d</h2></td>
+					</tr>
+					<tr>
+						<td>On Road Price</td><td>&#8377; $car_price_d </td>
+					</tr>
+					<tr>
+						<td>Fuel Type</td><td>Diesel</td>
+					</tr>
+					<tr>
+						<td>Mileage (kmpl)</td><td class="letterA">$mileage_d </td>
+					</tr>
+					<tr>
+						<td >Diesel Savings for 2 years</td><td id="d2">&#8377; $final_d[2] </td>
+					</tr>
+					<tr>
+						<td >Diesel Savings for 4 years</td><td id="d4">&#8377; $final_d[4] </td>
+					</tr>
+					<tr>
+						<td >Diesel Savings for 6 years</td><td id="d6">&#8377; $final_d[6] </td>
+					</tr>
+				</table>
+				</tr>
+				</table>
+				<form id="contactdealerbuttonform" >
+				<input type="hidden" value="$car_id_d" name="car_id_d"/>
+				<input type="hidden" value="$car_id_p" name="car_id_p"/>
+				<input type="submit" class="button" id="contactdealer" value="Contact Dealer Now!" />
+				</form>
+
+
 	<script>
 		var final_d_2=$final_d[2];
 		var final_d_4=$final_d[4];
@@ -258,7 +277,7 @@ if(empty($missing)) {
 		{
 			document.getElementById("d6").style.backgroundColor= "rgba(255,0,0,0.5)";
 			document.getElementById("p6").style.backgroundColor ="rgba(0,200,0,0.6)";
-			
+
 		}
 		$(document).ready(function() {
 
@@ -271,7 +290,7 @@ if(empty($missing)) {
 			url: "http://localhost/pdc/includes/dealersearch.php",
 			success: function(response) {
 				$('html,body').animate({ scrollTop: $('#dealers').offset().top }, 1000);
-				$('#dealers').html(response);	
+				$('#dealers').html(response);
 			}
 		});
            }
@@ -281,7 +300,7 @@ if(empty($missing)) {
 	</script>
 EOPAGE;
 
-	echo $pageContents;	
+	echo $pageContents;
 	}
 else {
 	echo "<div class='mycontainer' style='min-height:200px !important;'><div class='mydiv' style='min-height:100px'>";
