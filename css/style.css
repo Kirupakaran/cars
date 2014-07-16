@@ -139,6 +139,7 @@ body {
 
 .block-half {
 	display: inline;
+	min-width: 50%;
 	width: 50%;
 }
 

@@ -80,17 +80,17 @@ $(document).ready(function() {
 <form id="petrolvsdiesel" method="post" action="">
 	<table>
 		<tr>
-			<td>
+			<td colspan="2">
 				<input type="text" name="kpd" id="kilometer" class="block text" placeholder="Kilometers Driven/Day" required <?php if ($missing) { echo 'value="' . htmlentities($kpd, ENT_COMPAT, 'UTF-8') . '"'; } ?>>
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td colspan="2">
 				<input type="text" name="dpm" id="days" class="block text" placeholder="Number of days driven/Month" required <?php if ($missing) { echo 'value="' . htmlentities($dpm, ENT_COMPAT, 'UTF-8') . '"'; } else { echo 'value=25'; }?>>
 			</td>
 		</tr>
 		<tr>
-			<td>
+			<td colspan="2">
 				<select name="location" required id="location" class="block text">
 					<option value="" disabled selected>Select a Location</option>
 					<?php $locationarray=array( "Tamil Nadu", "Maharashtra", "Delhi", "Karnataka"); foreach($locationarray as $loc) { ?>
@@ -101,8 +101,8 @@ $(document).ready(function() {
 			</td>
 		</tr>
 		<tr>
-			<td align="center">
-				Select Your Preferred Car
+			<td>
+				<span>Select Your Preferred Car</span>
 			</td>
 		</tr>
 		<tr>
