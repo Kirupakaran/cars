@@ -1,61 +1,79 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Petrol Vs Diesel Cars</title>
 		<!--<link rel="stylesheet" href="css/style.css" />
-
-		<link href="css/dsstyle.css" rel="stylesheet" type="text/css" media="all" /> -->
-	<!--	<link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+		<link href="css/dsstyle.css" rel="stylesheet" type="text/css" media="all" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/style2.css" />
+		<link rel="stylesheet" href="css/style2.css" /> -->
+		<link rel="stylesheet" href="css/pure/pure-min.css">
+		<link rel="stylesheet" href="css/pure/grids-responsive-min.css">
+		<link rel="stylesheet" href="css/altstyle.css" />
 		<script src="js/jquery.min.js"></script>
 		<script src="js/script.js"></script>
 	</head>
 	<body>
-	<div id="container">
-		<!-- start of main page -->
-		<div class="maindiv">
-			<div id="dealerloginbutton"><buttonx id="dealerlogin"><a href="dealerlog.php">Dealer?</a></button></div>
-			<div id="main">
-				<h1 id="heading1">Petrol vs Diesel Cars</h1>
-				<p id="mainp">A site to compare petrol and diesel cars and find which one is right for you</p>
-				<button class="button" id="go">Go!</button>
+	<div class="header">
+    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">Cars</a>
+        <ul>
+            <li class="pure-menu-selected"><a href="#splash">Home</a></li>
+            <li><a href="#">Dealer</a></li>
+            <li><a href="#">Admin</a></li>
+        </ul>
+    </div>
+	</div>
+
+		<!-- start of splash page -->
+		<div class="splash-container">
+			<div class="splash">
+					<h1 class="splash-head">Petrol vs Diesel Cars</h1>
+					<p class="splash-subhead">A site to compare petrol and diesel cars and find which one is right for you</p>
 			</div>
 		</div>
-		<!-- end of main -->
+		<!-- end of splash -->
+	<div class="content-wrapper">
 		<!-- form -->
-		<section id="form-section">
-			<div id="form">
-				<?php require('./includes/form.inc.php'); ?>
+		<div class="content">
+			<div class="pure-g">
+				<div class="pure-u-1">
+					<h2 class="content-head">Let's compare cars, Shall We?</h2>
+					<?php require('./includes/form.inc.php'); ?>
+				</div>
 			</div>
-		</section>
+		</div>
 		<!-- end of form -->
 		<!-- cars comparison section -->
-		<section id="cars-section">
+		<div class="content">
 			<div id="cars"></div>
-		</section>
+		</div>
 
 		<!-- end of comparison -->
 		<!-- dealer search section -->
-		<section id="dealers-section">
-		<div id="dealers"></div>
-		</section>
+		<div class="content">
+			<div id="dealers"></div>
+		</div>
 		<!-- end of dealer search -->
 		<!-- feedback section -->
-		<section id="feedback-section">
-			<div id="feedbackdiv">
-				<h2>FEEDBACK</h2>
-				<p> We accept any suggestions,comments and queries that you may have.</p>
-				<?php require('./includes/feedback.php'); ?>
+		<div class="content feedback">
+			<div class="pure-g">
+				<div class="l-box-lrg pure-u-1" id="feedbackdiv">
+					<h2>FEEDBACK</h2>
+					<?php require('./includes/feedback.php'); ?>
+				</div>
 			</div>
-		</section>
+		</div>
 		<!-- feedback end -->
 		<!-- footer -->
-
-		<footer id="copyright">
-			<span>&copy; Cars. All rights reserved.</span>
+		<footer class="footer">
+			<div class="pure-g">
+				<div class="pure-u-1 footer-content">
+					<span>&copy; Cars. All rights reserved.</span>
+				</div>
+			</div>
 		</footer>
-
 		<!-- end of footer -->
 	</div>
 	</body>

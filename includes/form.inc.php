@@ -16,22 +16,21 @@ if(isset($_POST[ 'submit'])) {
 		}
 		${$key}=$temp;
 	}
-} ?>
-<html>
-<head>
+}
+?>
+
 <script>
 $(document).ready(function() {
 	$("#carbrand").change( function(){
 		var e = document.getElementById("carbrand");
 		var brand = e.options[e.selectedIndex].text;
-		$("#carmodel").css({ "display" : "block"});
 		$.ajax({
 			data: {carbrand:brand},
 			type: "get",
 			url: "http://localhost/pdc/includes/db.php",
 			success: function(response) {
-				$("#pvariant").empty();
-				$("#dvariant").empty();
+				$("#pvariant").html('<option value="" disabled selected>Petrol variant</option>');
+				$("#dvariant").html('<option value="" disabled selected>Diesel variant</option>');
 				$("#carmodel").empty();
 				$('#carmodel').html(response);
 			}
@@ -43,8 +42,6 @@ $(document).ready(function() {
 		var model = e1.options[e1.selectedIndex].text;
 		var e = document.getElementById("carbrand");
 		var brand = e.options[e.selectedIndex].text;
-		$("#pvariant").css({ "display" : "block"});
-		$("#dvariant").css({ "display" : "block"});
 		$.ajax({
 			data: {carbrand:brand,carmodel:model},
 			type: "get",
@@ -75,67 +72,85 @@ $(document).ready(function() {
 	});
 });
 </script>
-</head>
-<body>
-<form id="petrolvsdiesel" method="post" action="">
-	<table>
-		<tr>
-			<td colspan="2">
-				<input type="text" name="kpd" id="kilometer" class="block text" placeholder="Kilometers Driven/Day" required <?php if ($missing) { echo 'value="' . htmlentities($kpd, ENT_COMPAT, 'UTF-8') . '"'; } ?>>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<input type="text" name="dpm" id="days" class="block text" placeholder="Number of days driven/Month" required <?php if ($missing) { echo 'value="' . htmlentities($dpm, ENT_COMPAT, 'UTF-8') . '"'; } else { echo 'value=25'; }?>>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<select name="location" required id="location" class="block text">
-					<option value="" disabled selected>Select a Location</option>
+<form class="pure-form pure-form-aligned" id="petrolvsdiesel" method="post" action="">
+	<fieldset>
+		<div class="pure-control-group pure-g">
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<label for="kpd" class="pure-u-1">Kilometers Driven/Day</label>
+			</div>
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<input type="text" name="kpd" id="kilometer" class="pure-input-1" required <?php if ($missing) { echo 'value="' . htmlentities($kpd, ENT_COMPAT, 'UTF-8') . '"'; } ?>>
+			</div>
+		</div>
+		<div class="pure-control-group pure-g">
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<label for="dpm">Number of days driven/Month</label>
+			</div>
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<input type="text" name="dpm" id="days" default="25" class="pure-input-1" required <?php if ($missing) { echo 'value="' . htmlentities($dpm, ENT_COMPAT, 'UTF-8') . '"'; } else { echo 'value=25'; }?>>
+			</div>
+		</div>
+		<div class="pure-control-group pure-g">
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<label for="location" class="pure-u-1">	Location</label>
+			</div>
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<select name="location" required id="location" class="pure-input-1">
 					<?php $locationarray=array( "Tamil Nadu", "Maharashtra", "Delhi", "Karnataka"); foreach($locationarray as $loc) { ?>
-						<option <?php if (isset($_POST['location']) && $_POST['location']==$loc) { echo 'selected'; } ?>>
-						<?php echo $loc ?>
-					</option>
+						<option <?php if (isset($_POST['location']) && $_POST['location']==$loc) { echo 'selected'; } ?>><?php echo $loc ?></option>
 					<?php } ?>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span>Select Your Preferred Car</span>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<select name="carbrand" required id="carbrand" class="block-half text">
-					<option value="" disabled selected>Car Brand</option>
+				</select>
+			</div>
+		</div>
+		<div class="pure-control-group pure-g">
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<label for="carbrand" class="pure-u-1">Car Brand</label>
+			</div>
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<select name="carbrand" required id="carbrand" class="pure-input-1">
+					<option value="" disabled selected>Select a brand</option>
 					<?php while($row=$carbrand->fetch_assoc()) { ?>
-						<option  value="<?php echo $row['brand']; ?>" <?php if (isset($_GET['carname_p']) && $_GET['carname_p']==$row['brand']) { echo 'selected'; } ?>>
-						<?php echo $row['brand']; ?>
-					</option>
+						<option  value="<?php echo $row['brand']; ?>" <?php if (isset($_GET['carname_p']) && $_GET['carname_p']==$row['brand']) { echo 'selected'; } ?>><?php echo $row['brand']; ?></option>
 					<?php } ?>
 				</select>
-			</td>
-			<td>
-				<select name="carmodel" id="carmodel" class="block-half text" required style="display:none">
-				<option value="" disabled selected>Car Model</option>
+			</div>
+		</div>
+		<div class="pure-control-group pure-g">
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<label for="carmodel" class="pure-u-1">Car Model</label>
+			</div>
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<select name="carmodel" id="carmodel" class="pure-input-1" required>
+					<option value="" disabled selected>Car Model</option>
 				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<select name="car_id_p" id="pvariant" required style="display:none" class="block-half text">
-				<option value="" disabled selected>Petrol variant</option>
+			</div>
+		</div>
+		<div class="pure-control-group pure-g">
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<label for="car_id_p" class="pure-u-1">Petrol Variant</label>
+			</div>
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<select name="car_id_p" id="pvariant" class="pure-input-1" required>
+					<option value="" disabled selected>Petrol variant</option>
 				</select>
-			</td>
-			<td>
-				<select name="car_id_d" id="dvariant" required style="display:none" class="block-half text">
+			</div>
+		</div>
+		<div class="pure-control-group pure-g">
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<label for="car_id_d" class="pure-u-1">Diesel Variant</label>
+			</div>
+			<div class="pure-u-1 pure-u-lg-1-3">
+				<select name="car_id_d" id="dvariant" class="pure-input-1" required>
 					<option value="" disabled selected>Diesel variant</option>
 				</select>
-			</td>
-		</tr>
-	</table>
-	<input type="submit" name="submit" value="GO" id="formsubmit" class="button">
+			</div>
+		</div>
+		<div class="pure-controls pure-g">
+			<div class="pure-u-1-5 pure-u-md-1-5"></div>
+			<div class="pure-u-3-5 pure-u-md-2-5">
+				<input type="submit" name="submit" value="GO" id="formsubmit" class="pure-button pure-button-primary button-success pure-input-1 button-xlarge">
+			</div>
+			<div class="pure-u-1-5 pure-u-md-2-5"></div>
+		</div>
+	</fieldset>
 </form>
-</body>
-</html>

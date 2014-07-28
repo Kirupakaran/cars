@@ -178,73 +178,117 @@ if(empty($missing)) {
 	mysqli_close($con);
 
 	$pageContents = <<< EOPAGE
-
-			<table class="comparison">
-				<tr>
-					<td>
-						<table>
-							<tr>
-								<td colspan=2><img class="image" src=$src_p height=300 width=450/></td>
-							</tr>
-							<tr>
-								<td colspan=2 class="carname"><h2 align="center"> $name_p </h2></td>
-							</tr>
-							<tr>
-								<td>On Road Price</td><td>&#8377; $car_price_p </td>
-							</tr>
-							<tr>
-								<td>Fuel Type</td><td>Petrol </td>
-							</tr>
-							<tr>
-								<td>Mileage (kmpl)</td><td>$mileage_p </td>
-							</tr>
-							<tr>
-								<td >Petrol Savings for 2 years</td><td id="p2" valign="20">&#8377; $final_p[2] </td>
-							</tr>
-							<tr>
-								<td >Petrol Savings for 4 years</td><td id="p4">&#8377; $final_p[4] </td>
-							</tr>
-							<tr>
-								<td >Petrol Savings for 6 years</td><td id="p6">&#8377; $final_p[6] </td>
-							</tr>
-						</table>
-					</td>
-					<td>
-						<table class="comparison">
-							<tr>
-								<td colspan=2><img class="image " src=$src_d height=300 width=450/></td>
-							</tr>
-							<tr>
-								<td colspan=2 class="carname"><h2 align="center">$name_d</h2></td>
-							</tr>
-							<tr>
-								<td>On Road Price</td><td>&#8377; $car_price_d </td>
-							</tr>
-							<tr>
-								<td>Fuel Type</td><td>Diesel</td>
-							</tr>
-							<tr>
-								<td>Mileage (kmpl)</td><td class="letterA">$mileage_d </td>
-							</tr>
-							<tr>
-								<td >Diesel Savings for 2 years</td><td id="d2">&#8377; $final_d[2] </td>
-							</tr>
-							<tr>
-								<td >Diesel Savings for 4 years</td><td id="d4">&#8377; $final_d[4] </td>
-							</tr>
-							<tr>
-								<td >Diesel Savings for 6 years</td><td id="d6">&#8377; $final_d[6] </td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
+				<div class="pure-g">
+					<div class="pure-u-1 pure-u-md-1-2">
+						<img class="image pure-img" src=$src_p />
+						<h2> $name_p </h2>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>On Road Price</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span>&#8377; $car_price_p </span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Fuel Type</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span>Petrol</span><br>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Mileage (kmpl)</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span> $mileage_p </span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Petrol Savings for 2 years</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span id="p2" valign="20">&#8377; $final_p[2] </span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Petrol Savings for 4 years</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span id="p4">&#8377; $final_p[4] </span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Petrol Savings for 6 years</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span id="p6">&#8377; $final_p[6] </span>
+							</div>
+						</div>
+					</div>
+					<div class="pure-u-1 pure-u-md-1-2">
+						<img class="image pure-img" src=$src_d />
+						<h2>$name_d</h2>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>On Road Price</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span>&#8377; $car_price_d </span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Fuel Type</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span>Diesel</span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Mileage (kmpl)</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span class="letterA">$mileage_d </span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Diesel Savings for 2 years</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span id="d2">&#8377; $final_d[2] </span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Diesel Savings for 4 years</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span id="d4">&#8377; $final_d[4] </span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Diesel Savings for 6 years</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span id="d6">&#8377; $final_d[6] </span>
+							</div>
+						</div>
+					</div>
+				</div>
 			<form id="contactdealerbuttonform" >
 			<input type="hidden" value="$car_id_d" name="car_id_d"/>
 			<input type="hidden" value="$car_id_p" name="car_id_p"/>
-			<input type="submit" class="button" id="contactdealer" value="Contact Dealer Now!" />
+			<input type="submit" class="pure-button pure-button-primary" id="contactdealer" value="Contact Dealer Now!" />
 			</form>
-
 
 	<script>
 		var final_d_2=$final_d[2];

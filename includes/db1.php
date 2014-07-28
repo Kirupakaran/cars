@@ -10,12 +10,10 @@ $stmt->bind_param('ss', $carbrand, $carmodel);
 $stmt->execute();
 $carvariant = $stmt->get_result(); ?>
 <option value=''>Petrol variant</option>
-<?php if (mysqli_num_rows($carvariant) >= 1) { 
+<?php if (mysqli_num_rows($carvariant) >= 1) {
 	while($row=$carvariant->fetch_assoc()) { ?>
-	<option  value="<?php echo $row['car_id']; ?>" <?php if (isset($_GET['petrolvariant']) && $_GET['petrolvariant']==$row['variant']) { echo 'selected'; } ?>>
-	<?php echo $row['variant']; ?>
-</option>
+	<option  value="<?php echo $row['car_id']; ?>" <?php if (isset($_GET['petrolvariant']) && $_GET['petrolvariant']==$row['variant']) { echo 'selected'; } ?>><?php echo $row['variant']; ?></option>
 <?php }
 }
-			
+
 ?>

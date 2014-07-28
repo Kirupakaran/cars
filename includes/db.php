@@ -11,9 +11,7 @@ $carmodel = $stmt->get_result();?>
 <option value=''>Car Model</option>
 <?php if (mysqli_num_rows($carmodel) >= 1){
 while($row=$carmodel->fetch_assoc()) { ?>
-	<option  value="<?php echo $row['carmodel']; ?>" <?php if (isset($_GET['carname_d']) && $_GET['carname_d']==$row['carmodel']) { echo 'selected'; } ?>>
-		<?php echo $row['carmodel']; ?>
-	</option>
+	<option  value="<?php echo $row['carmodel']; ?>" <?php if (isset($_GET['carname_d']) && $_GET['carname_d']==$row['carmodel']) { echo 'selected'; } ?>><?php echo $row['carmodel']; ?></option>
 <?php }
 }
 ?>

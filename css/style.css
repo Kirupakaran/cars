@@ -27,16 +27,19 @@ body {
 	background: rgba(0, 0, 15, .4);
 	margin: 0 auto;
 	overflow:hidden;
-	padding: 5em;
+	padding: 5rem;
 	text-align: center;
-	width: 600px;
+	width: 60%;
 }
 
+#main h1 {
+	font-size: 5rem;
+}
 #main p {
 	color: white;
-	font-size: 20px;
-	letter-spacing: 0.2em;
-	line-height: 2em;
+	font-size: 2rem;
+	letter-spacing: 0.2rem;
+	line-height: 2rem;
 	margin: 0 auto;
 	opacity: 0.9;
 }
@@ -65,10 +68,11 @@ body {
 
 
 #form form {
-	font-size: 20px;
-	letter-spacing: 0.1em;
-	line-height: 2em;
+	font-size: 16px;
+	letter-spacing: 0.1rem;
+	line-height: 1rem;
 	margin: 0 auto;
+	margin-top: 5%;
 	width: 80%;
 }
 
@@ -94,14 +98,14 @@ body {
 	background: white;
 	box-shadow: 0 0 7px 7px #ddd;
 	font-size: 20px;
-	letter-spacing: 0.1em;
-	line-height: 2em;
+	letter-spacing: 0.1rem;
+	line-height: 2rem;
 	margin: 0 auto;
 	width: 80%;
 }
 
 #feedbackdiv h2 {
-	padding: 1em 0 0 2em;
+	padding: 1rem 0 0 2rem;
 }
 
 #feedbackdiv form, #feedbackdiv p {
@@ -112,7 +116,7 @@ body {
 
 #copyright {
 	color: #7c8081;
-	padding: 5em 0 5em 0;
+	padding: 5rem 0 5rem 0;
 	text-align: center;
 }
 
@@ -144,8 +148,8 @@ body {
 }
 
 .text {
-	font-size: 1.2em;
-	padding: 0.3em;
+	font-size: 2rem;
+	padding: 1rem;
 }
 
 /*
@@ -168,3 +172,33 @@ body {
 	text-decoration: none;
 }
 */
+
+@media (min-width: 858px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 780px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 702px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media (min-width: 724px) {
+    html {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 623px) {
+    html {
+        font-size: 8px;
+    }
+}

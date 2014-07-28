@@ -52,35 +52,28 @@ if (!$suspect && !$missing) {
 	}
 }
 ?>
-<body>
-	<form id="feedback" method="post" action="">
-		<div class="row half">
-			<div class="6u">
-				<input type="text" class="text block" name="name" placeholder="Name" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>/>
-				<?php if($missing&&in_array( 'name',$missing)){ ?>
-				<span class="error">Enter the name</span>
-				<?php } ?>
-			</div>
-			<div class="6u">
-				<input type="text" class="text block" name="email" placeholder="Email" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>/>
-				<?php if($missing&&in_array( 'email',$missing)){ ?>
-				<span class="error">Enter the mail id</span>
-				<?php } ?>
-			</div>
-		</div>
-		<div class="row half">
-			<div class="12u">
-				<textarea name="message" placeholder="Message" cols="40" rows="6" class="text block" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>></textarea>
-				<?php if($missing&&in_array( 'message',$missing)){ ?>
-				<span class="error">Enter the message</span>
-				<?php } ?>
-			</div>
-		</div>
-		<div class="row">
-			<div class="12u">
-				<input type="submit" class="button" name="submit" value="Send message" style="width:200px;height:50px;padding: 0; font-size:18px;"/>
-			</div>
-		</div>
+
+	<form class="pure-form pure-form-stacked" id="feedback" method="post" action="">
+		<legend> We accept any suggestions,comments and queries that you may have.</legend>
+		<fieldset>
+
+			<input type="text" class="pure-input-1" name="name" placeholder="Name" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>/>
+			<?php if($missing&&in_array( 'name',$missing)){ ?>
+			<span class="error">Enter the name</span>
+			<?php } ?>
+
+			<input type="text" class="pure-input-1" name="email" placeholder="Email" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>/>
+			<?php if($missing&&in_array( 'email',$missing)){ ?>
+			<span class="error">Enter the mail id</span>
+			<?php } ?>
+
+			<textarea name="message" placeholder="Message" cols="40" rows="6" class="pure-input-1" required <?php if ($missing) { echo 'value="' . htmlentities($name, ENT_COMPAT, 'UTF-8') . '"'; } ?>></textarea>
+			<?php if($missing&&in_array( 'message',$missing)){ ?>
+			<span class="error">Enter the message</span>
+			<?php } ?>
+
+			<input type="submit" class="pure-button pure-button-primary button-success button-xlarge" name="submit" value="Send message" style="width:200px;height:50px;padding: 0; font-size:18px;"/>
+		</fieldset>
 		<?php if ($_POST && $suspect && !$missing) { ?>
 		<p class="warning">Sorry, your mail could not be sent. Please try later.</p>
 		<?php } elseif ($missing) { ?>
@@ -89,4 +82,3 @@ if (!$suspect && !$missing) {
 		<p class="warning">Sorry, your mail could not be sent. Please try later.</p>
 		<?php } ?>
 	</form>
-</body>
