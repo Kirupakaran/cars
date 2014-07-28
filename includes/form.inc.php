@@ -75,26 +75,26 @@ $(document).ready(function() {
 <form class="pure-form pure-form-aligned" id="petrolvsdiesel" method="post" action="">
 	<fieldset>
 		<div class="pure-control-group pure-g">
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-11-24">
 				<label for="kpd" class="pure-u-1">Kilometers Driven/Day</label>
 			</div>
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-9-24">
 				<input type="text" name="kpd" id="kilometer" class="pure-input-1" required <?php if ($missing) { echo 'value="' . htmlentities($kpd, ENT_COMPAT, 'UTF-8') . '"'; } ?>>
 			</div>
 		</div>
 		<div class="pure-control-group pure-g">
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-11-24">
 				<label for="dpm">Number of days driven/Month</label>
 			</div>
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-9-24">
 				<input type="text" name="dpm" id="days" default="25" class="pure-input-1" required <?php if ($missing) { echo 'value="' . htmlentities($dpm, ENT_COMPAT, 'UTF-8') . '"'; } else { echo 'value=25'; }?>>
 			</div>
 		</div>
 		<div class="pure-control-group pure-g">
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-11-24">
 				<label for="location" class="pure-u-1">	Location</label>
 			</div>
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-9-24">
 				<select name="location" required id="location" class="pure-input-1">
 					<?php $locationarray=array( "Tamil Nadu", "Maharashtra", "Delhi", "Karnataka"); foreach($locationarray as $loc) { ?>
 						<option <?php if (isset($_POST['location']) && $_POST['location']==$loc) { echo 'selected'; } ?>><?php echo $loc ?></option>
@@ -103,10 +103,10 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class="pure-control-group pure-g">
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-11-24">
 				<label for="carbrand" class="pure-u-1">Car Brand</label>
 			</div>
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-9-24">
 				<select name="carbrand" required id="carbrand" class="pure-input-1">
 					<option value="" disabled selected>Select a brand</option>
 					<?php while($row=$carbrand->fetch_assoc()) { ?>
@@ -116,41 +116,41 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class="pure-control-group pure-g">
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-11-24">
 				<label for="carmodel" class="pure-u-1">Car Model</label>
 			</div>
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-9-24">
 				<select name="carmodel" id="carmodel" class="pure-input-1" required>
 					<option value="" disabled selected>Car Model</option>
 				</select>
 			</div>
 		</div>
 		<div class="pure-control-group pure-g">
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-11-24">
 				<label for="car_id_p" class="pure-u-1">Petrol Variant</label>
 			</div>
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-9-24">
 				<select name="car_id_p" id="pvariant" class="pure-input-1" required>
 					<option value="" disabled selected>Petrol variant</option>
 				</select>
 			</div>
 		</div>
 		<div class="pure-control-group pure-g">
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-11-24">
 				<label for="car_id_d" class="pure-u-1">Diesel Variant</label>
 			</div>
-			<div class="pure-u-1 pure-u-lg-1-3">
+			<div class="pure-u-1 pure-u-lg-9-24">
 				<select name="car_id_d" id="dvariant" class="pure-input-1" required>
 					<option value="" disabled selected>Diesel variant</option>
 				</select>
 			</div>
 		</div>
 		<div class="pure-controls pure-g">
-			<div class="pure-u-1-5 pure-u-md-1-5"></div>
-			<div class="pure-u-3-5 pure-u-md-2-5">
+			<div class="pure-u-1-5 pure-u-md-9	-24"></div>
+			<div class="pure-u-3-5 pure-u-md-5-24">
 				<input type="submit" name="submit" value="GO" id="formsubmit" class="pure-button pure-button-primary button-success pure-input-1 button-xlarge">
 			</div>
-			<div class="pure-u-1-5 pure-u-md-2-5"></div>
+			<div class="pure-u-1-5 pure-u-md-5-24"></div>
 		</div>
 	</fieldset>
 </form>
