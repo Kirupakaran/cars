@@ -53,12 +53,12 @@ label {
  */
 
 .home-menu {
-    padding: 0.5em;
+    padding: 0.2em;
     text-align: center;
     box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 }
 .home-menu.pure-menu-open {
-    background: #2d3e50;
+    background: rgba(55, 76, 120, 0.5);
 }
 .pure-menu.pure-menu-open.pure-menu-fixed {
     /* Fixed menus normally have a border at the bottom. */
@@ -78,7 +78,9 @@ label {
 }
 
 .home-menu a {
-    color: #6FBEF3;
+    color: #6FBEFF;
+    font-weight: 400;
+    font-size: 120%;
 }
 .home-menu li a:hover,
 .home-menu li a:focus {
@@ -94,7 +96,8 @@ label {
  */
 
 .splash-container {
-    background: #1f8dd6 url(images/car.jpg);
+    background: #1f8dd6 url(images/car4.jpg);
+    background-size: cover;
     z-index: 1;
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
@@ -268,6 +271,11 @@ label {
     }
 }
 
+@media (max-width: 35.5em) {
+    .header {
+        display: none;
+    }
+}
 /*
  * -- DESKTOP (AND UP) MEDIA QUERIES --
  * On desktops and other large devices, we want to over-ride some

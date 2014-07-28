@@ -19,7 +19,6 @@
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
         <a class="pure-menu-heading" href="">Cars</a>
         <ul>
-            <li class="pure-menu-selected"><a href="#splash">Home</a></li>
             <li><a href="#">Dealer</a></li>
             <li><a href="#">Admin</a></li>
         </ul>
