@@ -45,7 +45,7 @@
 		</div>
 		<!-- end of form -->
 		<!-- cars comparison section -->
-		<div class="content">
+		<div class="content compare">
 			<div id="cars"></div>
 		</div>
 
