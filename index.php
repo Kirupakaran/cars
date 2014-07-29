@@ -17,9 +17,10 @@
 	<body>
 	<div class="header">
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">Cars</a>
+        <a class="pure-menu-heading" href="#">Cars</a>
         <ul>
-            <li><a href="#">Dealer</a></li>
+			
+            <li><a class="pure-menu-dealer" href="">Dealer</a></li>
             <li><a href="#">Admin</a></li>
         </ul>
     </div>
@@ -33,28 +34,32 @@
 			</div>
 		</div>
 		<!-- end of splash -->
-	<div class="content-wrapper">
+	<div class="content-wrapper" id="compare_form">
 		<!-- form -->
 		<div class="content">
 			<div class="pure-g">
 				<div class="pure-u-1">
+					<br>
 					<h2 class="content-head">Let's compare cars, Shall We?</h2>
 					<?php require('./includes/form.inc.php'); ?>
 				</div>
 			</div>
 		</div>
 		<!-- end of form -->
+		<span class="pure-menu-compare">
+		<a  href="#" id="compare">Compare Cars</a></span>
 		<!-- cars comparison section -->
 		<div class="content compare">
 			<div id="cars"></div>
 		</div>
-
+	
 		<!-- end of comparison -->
 		<!-- dealer search section -->
 		<div class="content">
 			<div id="dealers"></div>
 		</div>
 		<!-- end of dealer search -->
+		
 		<!-- feedback section -->
 		<div class="content feedback">
 			<div class="pure-g">
