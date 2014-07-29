@@ -89,19 +89,20 @@ if(empty($missing)) {
 	$data=$stmt->get_result();
 	$petrol_car = mysqli_fetch_array($data);
 	$name_p=$petrol_car ['brand'];
+	$car_price_p=$petrol_car['base_price'];
 	$name_p.=" ".$petrol_car ['carmodel'];
 	$name_p.=" ".$petrol_car ['variant'];
 	$mileage_p=$petrol_car['mileage'];
 	$src_p="data:image/jpeg;base64,".base64_encode( $petrol_car ['image'] );
+	
 	/*Obtaining Petrol car price from db*/
 	$sql = "SELECT COUNT(car_id) as count FROM carprice WHERE car_id = ? and state = ? ";
 	$stmt->prepare($sql);
 	$stmt->bind_param('ss', $car_id_p,$location);
 	$stmt->execute();
-	$row=$stmt->get_result();
-	if (mysqli_num_rows($row) == 0)
-		$car_price_p=$petrol_car['base_price'];
-	else
+	$data=$stmt->get_result();
+	$row = mysqli_fetch_array($data);
+	if($row['count']>0)
 	{
 		$sql ="SELECT * FROM carprice WHERE car_id= ? and state = ? ";
 		$stmt->prepare($sql);
@@ -137,10 +138,9 @@ if(empty($missing)) {
 	$stmt->prepare($sql);
 	$stmt->bind_param('ss', $car_id_d,$location);
 	$stmt->execute();
-	$row=$stmt->get_result();
-	if(mysqli_num_rows($row) == 0)
-		$car_price_d=$diesel_car['base_price'];
-	else
+	$data=$stmt->get_result();
+	$row = mysqli_fetch_array($data);
+	if($row['count']>0)
 	{
 		$sql = "SELECT * FROM carprice WHERE car_id= ? and state = ? ";
 		$stmt->prepare($sql);
@@ -149,7 +149,9 @@ if(empty($missing)) {
 		$data=$stmt->get_result();
 		$row = mysqli_fetch_array($data);
 		$car_price_d=$row['price'];
+		
 	}
+	
 
 	$fuel_price_per_day_d	=($kpd/$mileage_d)*$dprice;
 	$fuel_price_per_month_d	=$fuel_price_per_day_d*$dpm;
@@ -178,6 +180,7 @@ if(empty($missing)) {
 	mysqli_close($con);
 
 	$pageContents = <<< EOPAGE
+				<br><br>
 				<div class="pure-g">
 					<div class="pure-u-1 pure-u-md-1-2">
 						<img class="image pure-img" src=$src_p />
@@ -286,8 +289,9 @@ if(empty($missing)) {
 				</div>
 			<form id="contactdealerbuttonform" >
 			<input type="hidden" value="$car_id_d" name="car_id_d"/>
-			<input type="hidden" value="$car_id_p" name="car_id_p"/>
-			<input type="submit" class="pure-button pure-button-primary" id="contactdealer" value="Contact Dealer Now!" />
+			<input type="hidden" value="$car_id_p" name="car_id_p"/><br>
+			<center>
+			<input type="submit" class="pure-button pure-button-primary button-success pure-input-1 button-xlarge" id="contactdealer" value="Contact Dealer Now!" /></center>
 			</form>
 
 	<script>

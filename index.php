@@ -4,10 +4,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Petrol Vs Diesel Cars</title>
 		<!--<link rel="stylesheet" href="css/style.css" />
-		<link href="css/dsstyle.css" rel="stylesheet" type="text/css" media="all" />
+		
 		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/style2.css" /> -->
+		<link rel="stylesheet" href="css/style2.css" /> 
+		<link rel="stylesheet" href="css/style.css" />-->
+		<link href="css/dsstyle.css" rel="stylesheet" type="text/css" media="all" />
 		<link rel="stylesheet" href="css/pure/pure-min.css">
 		<link rel="stylesheet" href="css/pure/grids-responsive-min.css">
 		<link rel="stylesheet" href="css/altstyle.css" />
@@ -46,8 +47,7 @@
 			</div>
 		</div>
 		<!-- end of form -->
-		<span class="pure-menu-compare">
-		<a  href="#" id="compare">Compare Cars</a></span>
+		<a  href="#" id="compare">Compare Cars</a>
 		<!-- cars comparison section -->
 		<div class="content compare">
 			<div id="cars"></div>

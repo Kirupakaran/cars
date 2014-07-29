@@ -38,7 +38,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: $(this).serialize(),
 			type: "post",
-			url: "http://localhost/pdc/includes/pvdc.php",
+			url: "http://localhost/cars-pure/cars/includes/pvdc.php",
 			success: function(response) {
 				$('html,body').animate({ scrollTop: $('#cars').offset().top }, 700);
 				$('#cars').html(response);
