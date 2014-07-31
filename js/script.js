@@ -38,7 +38,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: $(this).serialize(),
 			type: "post",
-			url: "http://localhost/cars-pure/cars/includes/pvdc.php",
+			url: "http://localhost/pdc/includes/pvdc.php",
 			success: function(response) {
 				$('html,body').animate({ scrollTop: $('#cars').offset().top }, 700);
 				$('#cars').html(response);
@@ -66,7 +66,7 @@ var animated=false;
 $(function() {
 	$(window).scroll(function(e) {
 			var x=$(".splash-container").height()+$(".content").height() - 200;
-			
+
             if($(this).scrollTop()>x){
 			if(animated==false)
 			{
@@ -77,8 +77,8 @@ $(function() {
             }
             else{
                 if(animated==true){
-					jQuery('#compare').animate({right:-500,opacity: 0.5}, 'slow');  
-					
+					jQuery('#compare').animate({right:-500,opacity: 0.5}, 'slow');
+
 					animated=false;
 		 }
 			}
