@@ -38,7 +38,7 @@ $(document).ready(function() {
 		$.ajax({
 			data: $(this).serialize(),
 			type: "post",
-			url: "http://localhost/pdc/includes/pvdc.php",
+			url: "http://localhost/cars-pure/cars/includes/pvdc.php",
 			success: function(response) {
 				$('html,body').animate({ scrollTop: $('#cars').offset().top }, 700);
 				$('#cars').html(response);
@@ -62,6 +62,47 @@ $(function() {
            }
       );
 });
+var animated=false;
+$(function() {
+	$(window).scroll(function(e) {
+			var x=$(".splash-container").height()+$(".content").height() - 200;
+			
+            if($(this).scrollTop()>x){
+			if(animated==false)
+			{
+			animated=true;
+		 $("#compare").css("display", "block");
+            jQuery('#compare').animate({right: -20,opacity: 1}, 'slow');
+			}
+            }
+            else{
+                if(animated==true){
+					jQuery('#compare').animate({right:-500,opacity: 0.5}, 'slow');  
+					
+					animated=false;
+		 }
+			}
+        });
+		$("#compare").mouseover(function(){
+if(animated==true){
+jQuery('#compare').animate({right: 0,opacity: 1}, 'fast'); //raised the div class=”.boxx” with image
+}
+});
+
+$("#compare").mouseout(function(){
+if(animated==true){
+jQuery('#compare').animate({right: -20,opacity: 1}, 'fast'); //lowers the div class=”.boxx” with image
+}
+});
+      $("#compare").click( function()
+           {
+				event.preventDefault();
+             $('html,body').animate({ scrollTop: $('#compare_form').offset().top }, 'slow');
+			 animated=true;
+           }
+      );
+});
+
 
 /*
 // Dealer login popup
