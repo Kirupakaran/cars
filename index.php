@@ -19,6 +19,7 @@
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
         <a class="pure-menu-heading" href="">Cars</a>
         <ul>
+						<li><a href="#">Compare</a></li>
             <li><a href="#">Dealer</a></li>
             <li><a href="#">Admin</a></li>
         </ul>

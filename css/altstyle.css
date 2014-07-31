@@ -78,7 +78,7 @@ label {
 }
 
 .home-menu a {
-    color: #6FBEFF;
+    color: #DFBEFF;
     font-weight: 400;
     font-size: 120%;
 }
@@ -89,6 +89,11 @@ label {
     color: #AECFE5;
 }
 
+.home-menu li:first-child {
+    color: white;
+    border-right: 1px solid rgba(230, 255, 255, 0.3);
+    padding-right: 3em;
+}
 
 /*
  * -- SPLASH STYLES --
@@ -189,6 +194,10 @@ label {
     margin-left: 0;
 }
 
+.compare {
+    text-align: center;
+}
+
 .footer {
     border-top: 1px solid #eee;
     background: rgb(250, 250, 250);
@@ -265,8 +274,17 @@ label {
 }
 
 @media (max-width: 35.5em) {
-    .header {
+    .pure-menu-fixed {
+        position: relative;
+    }
+
+    .home-menu li:nth-child(odd) {
         display: none;
+    }
+
+    #petrolvsdiesel {
+        margin: 0 auto;
+        max-width: 98%;
     }
 }
 /*
