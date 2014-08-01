@@ -146,7 +146,7 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class="pure-controls pure-g">
-			<div class="pure-u-1-5 pure-u-md-9	-24"></div>
+			<div class="pure-u-1-5 pure-u-md-9-24"></div>
 			<div class="pure-u-3-5 pure-u-md-5-24">
 
 				<input type="submit" name="submit" value="GO"  id="formsubmit" class="pure-button pure-button-primary button-success pure-input-1 button-xlarge">
