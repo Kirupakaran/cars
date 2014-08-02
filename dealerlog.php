@@ -43,25 +43,8 @@ if(isset($_POST['submit']))
 <html>
 <head>
 	<title>Dealer Login</title>
-	<style type="text/css" rel="stylesheet">
-		#container {
-			margin: 0 auto;
-			margin-top: 5%;
-			width: 50%;
-		}
-		#login {
-			background: rgba(0, 0, 127, 0.5);
-			border-color: rgba(145, 80, 255, 0.7);
-			border-radius: 3px;
-			color: white;
-			cursor: pointer;
-			font-size: 18px;
-			padding: 10px 20px 10px 20px;
-		}
-		#login:hover {
-			background: rgba(145, 90, 255, 0.5);
-		}
-	</style>
+	<link rel="stylesheet" href="css/pure/pure-min.css">
+	<link rel="stylesheet" href="css/pure/grids-responsive-min.css">
 </head>
 <body>
 	<div id="container">
@@ -74,7 +57,7 @@ if(isset($_POST['submit']))
 		echo "<p>$error</p>";
 	}
 	?>
-		<form id="form1" method="post" action="dealerlog.php">
+		<form id="pure-form pure-form-aligned" method="post" action="dealerlog.php">
 			<p>
 				<label for="Dealerid">Dealer ID:</label>
 				<input type="text" name="Dealerid" placeholder="Login" autofocus required>
@@ -84,7 +67,7 @@ if(isset($_POST['submit']))
 				<input type="password" name="password" placeholder="Password" required>
 			</p>
 			<p>
-				<input type="submit" name="submit" id="login" value="Login">
+				<input type="submit" name="submit" id="login" class="pure-button pure-button-primary" value="Login">
 			</p>
 		</form>
 	</div>

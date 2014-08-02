@@ -11,16 +11,18 @@
 		<link rel="stylesheet" href="css/pure/pure-min.css">
 		<link rel="stylesheet" href="css/pure/grids-responsive-min.css">
 		<link rel="stylesheet" href="css/altstyle.css" />
+		<link rel="stylesheet" href="css/magnific-popup.css">
 		<script src="js/jquery.min.js"></script>
 		<script src="js/script.js"></script>
+		<script src="js/jquery.magnific-popup.min.js"></script>
 	</head>
 	<body>
 	<div class="header">
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">Cars</a>
+        <a class="pure-menu-heading" href="">Home</a>
         <ul>
 						<li><a href="#">Compare</a></li>
-            <li><a href="#">Dealer</a></li>
+            <li><a href="dealerlog.php">Dealer</a></li>
             <li><a href="#">Admin</a></li>
         </ul>
     </div>

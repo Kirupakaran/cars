@@ -98,13 +98,12 @@ if (isset($_POST['loc']) && isset($_POST['carsel']) && $_POST['loc']!="" && $_PO
 
 	if($row = mysqli_fetch_array($data))
 	{
-		$pagecontents .= <<< EOPAGE
-			<p> $brand car dealers in $loc</p>
-			<div>
-
-			<table class="dealertable" bgcolor="Transparent" style="table-layout: fixed; width: 70%; border-spacing:0">
-EOPAGE;
 		$sno=1;
+		$k = 'k' . 1;
+		$pagecontents .= <<< EOPAGE
+			<h3> $brand car dealers in $loc</h3>
+			<div class="dealersearch">
+EOPAGE;
 		do
 		{
 			$dealerid=$row['dealerid'];
@@ -113,59 +112,53 @@ EOPAGE;
 			$phno=$row['phnumber'];
 			$email=$row['emailid'];
 			$pagecontents .= <<< EOPAGE
-				<tr onmouseover="showbutton(this,$sno)" onmouseout="hidebutton(this,$sno)"><td><b>$dname</b><br>$address</td><td  style="width:40%;">Phone : <b>$phno</b><br>Email : <b>$email</b></td><td style="width:20%;"><button style="display:none; max-width:100%" id="$sno" onclick="insertdealerid($dealerid)" class="topopup" >Send Details</button></td> </tr>
-
+				<div class="pure-g" onmouseover="showbutton(this,$sno)" onmouseout="hidebutton(this,$sno)">
+					<div class="pure-u-1 pure-u-md-13-24">
+						<span><b>$dname</b></span><br>
+						<span class="contact pure-u-7-12">$address</span>
+					</div>
+					<div class="pure-u-1 pure-u-md-7-24 contact">
+						<br><span>Phone : <b>$phno</b></span><br>
+						<span>Email : <b>$email</b></span>
+					</div>
+					<div class-"pure-u-1 pure-u-md-1-6">
+						<br>
+						<button class="pure-button pure-button-primary button-success " style="display:none;" id="$sno" onclick="getDetails($sno, $dealerid, '$k')">Send Details</button>
+					</div>
+					<div id="$k" class="pure-u-1"></div>
+				</div>
 EOPAGE;
 			$sno++;
+			$k = 'k' . $sno;
 		}while($row = mysqli_fetch_array($data ));
+		$pagecontents .= <<< EOPAGE
+			</div>
 
+			<div id="details" class="white-popup mfp-hide">
+				<form id="custform" class="pure-form pure-form-stacked" name="custform" action="" method="post">
+					<input placeholder="Name" type="text" id="custname" name="name">
+					<input placeholder="Email" type="text" id="custemail" name="email">
+					<input placeholder="Phone Number" type="text" id="custphno" name="phno">
+					<input type="hidden" value=0 id="hiddentd" name="dealid" >
+					<input type="hidden" value=$carid name="carid" >
+					<input type="hidden" value=$car_id_p name="car_id_p">
+					<input type="hidden" value=$car_id_d name="car_id_d">
+					<input type="submit" value="Send" class="pure-button pure-button-primary button-success">
+				</form>
+			</div>
+
+EOPAGE;
 	}
 	else
 	{
 
 		$pagecontents .= <<< EOPAGE
 			<div>
-			<p>No dealers found for $brand cars in $loc</p>
-
+				<p>No dealers found for $brand cars in $loc</p>
+			</div>
 EOPAGE;
 	}
 	$pagecontents .= <<< EOPAGE
-
-	</table>
-	</div>
-	<div id="toPopup">
-
-	<div class="close"></div>
-
-	<div id="popup_content">
-
-	<p>Send your details to the dealer.</p><br>
-	<form id="custform" class="pure-form pure-form-aligned" name="custform" action="" method="post">
-	<table class="custtable">
-	<tr><td><input placeholder="Name" type="text" id="custname" name="name"></td></tr>
-	<tr><td><input placeholder="Email" type="text" id="custemail" name="email"></td></tr>
-	<tr><td><input placeholder="Phone Number" type="text" id="custphno" name="phno"></td></tr>
-	<tr><td>
-	<input type="hidden" value=0 id="hiddentd" name="dealid" >
-	<input type="hidden" value=$carid name="carid" >
-	<input type="hidden" value=$car_id_p name="car_id_p">
-	<input type="hidden" value=$car_id_d name="car_id_d">
-	</td><td></td></tr>
-	<tr><td  align="center"><input type="submit" value="Send" class="topopup"></td></tr>
-	</table>
-	</form>
-
-	</div>
-
-	</div> <!--toPopup end-->
-
-	<div class="loader"></div>
-	<div id="backgroundPopup"></div>
-
-
-
-
-
 
 	<script>
 	function showbutton(div,id)
@@ -178,11 +171,19 @@ EOPAGE;
 		document.getElementById(id).style.display="none";
 		div.style.backgroundColor="Transparent";
 	}
-	function insertdealerid(dealerid)
-	{
-		document.getElementById("hiddentd").value=dealerid;
-	}
 
+		function getDetails(dealerid, divid)
+		{
+			$(document).ready(function() {
+				document.getElementById("hiddentd").value=dealerid;
+				$.magnificPopup.open({
+  				items: {
+    				src: '#details',
+    				type: 'inline'
+  				}
+				});
+			});
+		}
 
 	</script>
 EOPAGE;
@@ -191,7 +192,7 @@ EOPAGE;
 
 
 $pagecontents .= <<< EOPAGE
-</div>
+
 EOPAGE;
 echo $pagecontents;
 mysqli_close($con);
