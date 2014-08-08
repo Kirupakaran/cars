@@ -135,7 +135,7 @@ EOPAGE;
 			</div>
 
 			<div id="details" class="white-popup mfp-hide">
-				<form id="custform" class="pure-form pure-form-stacked" name="custform" action="" method="post">
+				<form id="custform" class="pure-form pure-form-stacked" name="custform" action="" onsubmit="$.magnificPopup.close();" method="post">
 					<input placeholder="Name" type="text" id="custname" name="name">
 					<input placeholder="Email" type="text" id="custemail" name="email">
 					<input placeholder="Phone Number" type="text" id="custphno" name="phno">

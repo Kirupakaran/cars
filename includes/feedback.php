@@ -20,35 +20,37 @@ function isSuspect($val, $pattern, &$suspect) {
 		}
 	}
 }
-if (!$suspect) {
-	foreach ($_POST as $key=>$value) {
-		$temp = is_array($value) ? $value : trim($value);
-		if (empty($temp) && in_array($key, $required)) {
-			$missing[] = $key;
+if (isset($_POST['submit'])) {
+	if (!$suspect) {
+		foreach ($_POST as $key=>$value) {
+			$temp = is_array($value) ? $value : trim($value);
+			if (empty($temp) && in_array($key, $required)) {
+				$missing[] = $key;
+			}
+			${$key} = $temp;
 		}
-		${$key} = $temp;
 	}
-}
-$mailSent = false;
-if (!$suspect && !$missing) {
-	$msg = '';
-	foreach($required as $item) {
-		if (isset(${$item}) && !empty(${$item})) {
-			$val = ${$item};
+	$mailSent = false;
+	if (!$suspect && !$missing) {
+		$msg = '';
+		foreach($required as $item) {
+			if (isset(${$item}) && !empty(${$item})) {
+				$val = ${$item};
+			}
+			else {
+				$val = 'Not selected';
+			}
+			if (is_array($val)) {
+				$val = implode(', ', $val);
+			}
+			$item = str_replace(array('_', '-'), ' ', $item);
+			$msg .= ucfirst($item).": $val\r\n\r\n";
 		}
-		else {
-			$val = 'Not selected';
+		$msg = wordwrap($msg, 70);
+		$mailSent = mail($to, $subject, $msg, $headers);
+		if (!$mailSent) {
+			$errors['mailfail'] = true;
 		}
-		if (is_array($val)) {
-			$val = implode(', ', $val);
-		}
-		$item = str_replace(array('_', '-'), ' ', $item);
-		$msg .= ucfirst($item).": $val\r\n\r\n";
-	}
-	$msg = wordwrap($msg, 70);
-	$mailSent = mail($to, $subject, $msg, $headers);
-	if (!$mailSent) {
-		$errors['mailfail'] = true;
 	}
 }
 ?>

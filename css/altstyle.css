@@ -252,9 +252,9 @@ label {
 }
 
 
-.white-popup {
+#details {
   margin: 0 auto;
-  width: 50%;
+  width: 20%;
 }
 /*
 * -- TABLET (AND UP) MEDIA QUERIES --
