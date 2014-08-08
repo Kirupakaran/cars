@@ -94,7 +94,7 @@ if(empty($missing)) {
 	$name_p.=" ".$petrol_car ['variant'];
 	$mileage_p=$petrol_car['mileage'];
 	$src_p="data:image/jpeg;base64,".base64_encode( $petrol_car ['image'] );
-	
+
 	/*Obtaining Petrol car price from db*/
 	$sql = "SELECT COUNT(car_id) as count FROM carprice WHERE car_id = ? and state = ? ";
 	$stmt->prepare($sql);
@@ -149,9 +149,9 @@ if(empty($missing)) {
 		$data=$stmt->get_result();
 		$row = mysqli_fetch_array($data);
 		$car_price_d=$row['price'];
-		
+
 	}
-	
+
 
 	$fuel_price_per_day_d	=($kpd/$mileage_d)*$dprice;
 	$fuel_price_per_month_d	=$fuel_price_per_day_d*$dpm;
@@ -211,26 +211,26 @@ if(empty($missing)) {
 						</div>
 						<div class="pure-g">
 							<div class="pure-u-1-2">
-								<span>Petrol Savings for 2 years</span>
+								<span>Savings in 2 years</span>
 							</div>
 							<div class="pure-u-1-2">
-								<span id="p2" valign="20">&#8377; $final_p[2] </span>
-							</div>
-						</div>
-						<div class="pure-g">
-							<div class="pure-u-1-2">
-								<span>Petrol Savings for 4 years</span>
-							</div>
-							<div class="pure-u-1-2">
-								<span id="p4">&#8377; $final_p[4] </span>
+								<span class="price" id="p2" valign="20">&#8377; $final_p[2] </span>
 							</div>
 						</div>
 						<div class="pure-g">
 							<div class="pure-u-1-2">
-								<span>Petrol Savings for 6 years</span>
+								<span>Savings in 4 years</span>
 							</div>
 							<div class="pure-u-1-2">
-								<span id="p6">&#8377; $final_p[6] </span>
+								<span class="price" id="p4">&#8377; $final_p[4] </span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Savings in 6 years</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span class="price" id="p6">&#8377; $final_p[6] </span>
 							</div>
 						</div>
 					</div>
@@ -263,26 +263,26 @@ if(empty($missing)) {
 						</div>
 						<div class="pure-g">
 							<div class="pure-u-1-2">
-								<span>Diesel Savings for 2 years</span>
+								<span>Savings in 2 years</span>
 							</div>
 							<div class="pure-u-1-2">
-								<span id="d2">&#8377; $final_d[2] </span>
-							</div>
-						</div>
-						<div class="pure-g">
-							<div class="pure-u-1-2">
-								<span>Diesel Savings for 4 years</span>
-							</div>
-							<div class="pure-u-1-2">
-								<span id="d4">&#8377; $final_d[4] </span>
+								<span class="price" id="d2">&#8377; $final_d[2] </span>
 							</div>
 						</div>
 						<div class="pure-g">
 							<div class="pure-u-1-2">
-								<span>Diesel Savings for 6 years</span>
+								<span>Savings in 4 years</span>
 							</div>
 							<div class="pure-u-1-2">
-								<span id="d6">&#8377; $final_d[6] </span>
+								<span class="price" id="d4">&#8377; $final_d[4] </span>
+							</div>
+						</div>
+						<div class="pure-g">
+							<div class="pure-u-1-2">
+								<span>Savings in 6 years</span>
+							</div>
+							<div class="pure-u-1-2">
+								<span class="price" id="d6">&#8377; $final_d[6] </span>
 							</div>
 						</div>
 					</div>
@@ -300,33 +300,33 @@ if(empty($missing)) {
 		var final_d_6=$final_d[6];
 		if(final_d_2>0)
 		{
-			document.getElementById("d2").style.backgroundColor= "rgba(0,200,0,0.6)";
-			document.getElementById("p2").style.backgroundColor ="rgba(255,0,0,0.5)";
+			document.getElementById("d2").style.color= "#178817";
+			document.getElementById("p2").style.color ="#cd171c";
 		}
 		else
 		{
-			document.getElementById("d2").style.backgroundColor= "rgba(255,0,0,0.5)";
-			document.getElementById("p2").style.backgroundColor ="rgba(0,200,0,0.6)";
+			document.getElementById("d2").style.color= "#178817";
+			document.getElementById("p2").style.color ="#cd171c";
 		}
 		if(final_d_4>0)
 		{
-			document.getElementById("d4").style.backgroundColor= "rgba(0,200,0,0.6)";
-			document.getElementById("p4").style.backgroundColor ="rgba(255,0,0,0.5)";
+			document.getElementById("d4").style.color= "#178817";
+			document.getElementById("p4").style.color ="#cd171c";
 		}
 		else
 		{
-			document.getElementById("d4").style.backgroundColor= "rgba(255,0,0,0.5)";
-			document.getElementById("p4").style.backgroundColor ="rgba(0,200,0,0.6)";
+			document.getElementById("d4").style.color= "#cd171c";
+			document.getElementById("p4").style.color ="#178817";
 		}
 		if(final_d_6>0)
 		{
-			document.getElementById("d6").style.backgroundColor= "rgba(0,200,0,0.6)";
-			document.getElementById("p6").style.backgroundColor ="rgba(255,0,0,0.5)";
+			document.getElementById("d6").style.color= "#178817";
+			document.getElementById("p6").style.color ="#cd171c";
 		}
 		else
 		{
-			document.getElementById("d6").style.backgroundColor= "rgba(255,0,0,0.5)";
-			document.getElementById("p6").style.backgroundColor ="rgba(0,200,0,0.6)";
+			document.getElementById("d6").style.color= "#cd171c";
+			document.getElementById("p6").style.color ="#178817";
 
 		}
 		$(document).ready(function() {

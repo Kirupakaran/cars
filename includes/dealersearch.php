@@ -33,9 +33,8 @@ $pagecontents = <<< EOPAGE
 
 		<div class="mainbox">
 		<div class="dscontainer">
-		<div align="center" >
 		<p>Select your Preferred Car and Location to locate your dealer</p>
-		<form id="dsform" class="pure-form pue-form-aligned" method="post" action="">
+		<form id="dsform" class="pure-form" method="post" action="">
 			<select id="carsel" name="carsel">
 				<option value="">Select Car</option>
 				<option value="$car_id_d">$carname_d</option>
@@ -51,8 +50,9 @@ $pagecontents = <<< EOPAGE
 
 			<input type="hidden" value=$car_id_p name="car_id_p">
 			<input type="hidden" value=$car_id_d name="car_id_d">
-			<input type="submit" name="submit" class="pure-button pure-button-primary"  id="dssubmit" value="Search">
+			<input type="submit" name="submit" class="pure-button pure-button-primary" id="dssubmit" value="Search">
 		</form>
+		</div>
 EOPAGE;
 
 if (isset($_POST['name'])  && isset($_POST['email']) && isset($_POST['phno']) && isset($_POST['dealid']) && isset($_POST['carid'])&& $_POST['name']!="" && $_POST['email']!=""  && $_POST['phno']!=""){
@@ -72,7 +72,7 @@ if (isset($_POST['name'])  && isset($_POST['email']) && isset($_POST['phno']) &&
 	mysqli_query($con,"INSERT INTO customerdetails (cust_name,cust_mailid,cust_phno,car_id,dealerid)VALUES ('$name', '$email',$phno,$carid,$dealid)");
 	$pagecontents = <<< EOPAGE
 		<div class="mainbox">
-		<div  class="dscontainer">
+		<div class="dscontainer">
 		<p align='center'>Your Details has been sent to the dealer. You will be contacted soon...</p>
 		</div></div>
 EOPAGE;
@@ -101,8 +101,8 @@ if (isset($_POST['loc']) && isset($_POST['carsel']) && $_POST['loc']!="" && $_PO
 		$sno=1;
 		$k = 'k' . 1;
 		$pagecontents .= <<< EOPAGE
+		<div class="dealersearch">
 			<h3> $brand car dealers in $loc</h3>
-			<div class="dealersearch">
 EOPAGE;
 		do
 		{
@@ -113,17 +113,21 @@ EOPAGE;
 			$email=$row['emailid'];
 			$pagecontents .= <<< EOPAGE
 				<div class="pure-g" onmouseover="showbutton(this,$sno)" onmouseout="hidebutton(this,$sno)">
-					<div class="pure-u-1 pure-u-md-13-24">
-						<span><b>$dname</b></span><br>
-						<span class="contact pure-u-7-12">$address</span>
+					<div class="pure-u-md-1-12"></div>
+					<div class="pure-u-1 pure-u-md-9-24">
+						<p><b>$dname</b><br>
+						$address</p>
 					</div>
-					<div class="pure-u-1 pure-u-md-7-24 contact">
-						<br><span>Phone : <b>$phno</b></span><br>
-						<span>Email : <b>$email</b></span>
+					<div class="pure-u-md-1-12"></div>
+					<div class="pure-u-1 pure-u-md-7-24">
+						<br>
+						Phone : <b>$phno</b>
+						<br>
+						Email : <b>$email</b>
 					</div>
 					<div class-"pure-u-1 pure-u-md-1-6">
 						<br>
-						<button class="pure-button pure-button-primary button-success " style="display:none;" id="$sno" onclick="getDetails($sno, $dealerid, '$k')">Send Details</button>
+						<button class="pure-button pure-button-primary button-success" style="display:none;" id="$sno" onclick="getDetails($sno, $dealerid, '$k')">Contact</button>
 					</div>
 					<div id="$k" class="pure-u-1"></div>
 				</div>
@@ -159,7 +163,7 @@ EOPAGE;
 EOPAGE;
 	}
 	$pagecontents .= <<< EOPAGE
-
+	</div>
 	<script>
 	function showbutton(div,id)
 	{
