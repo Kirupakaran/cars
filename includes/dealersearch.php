@@ -67,9 +67,10 @@ if (isset($_POST['name'])  && isset($_POST['email']) && isset($_POST['phno']) &&
 	$stmt->bind_param('ssss', $name,$email,$phno,$dealid);
 	$stmt->execute();
 	$data=$stmt->get_result();
+	$date = date('Y-m-d');
 	$row =mysqli_fetch_array($data);
 	if($row['count']==0)
-	mysqli_query($con,"INSERT INTO customerdetails (cust_name,cust_mailid,cust_phno,car_id,dealerid)VALUES ('$name', '$email',$phno,$carid,$dealid)");
+	mysqli_query($con,"INSERT INTO customerdetails (cust_name,cust_mailid,cust_phno,car_id,dealerid, dateAdded)VALUES ('$name', '$email',$phno,$carid,$dealid, '$date')");
 	$pagecontents = <<< EOPAGE
 		<div class="mainbox">
 		<div class="dscontainer">

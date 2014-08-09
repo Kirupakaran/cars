@@ -3,11 +3,6 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Petrol Vs Diesel Cars</title>
-		<!--<link rel="stylesheet" href="css/style.css" />
-		<link href="css/dsstyle.css" rel="stylesheet" type="text/css" media="all" />
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/style2.css" /> -->
 		<link rel="stylesheet" href="css/pure/pure-min.css">
 		<link rel="stylesheet" href="css/pure/grids-responsive-min.css">
 		<link rel="stylesheet" href="css/altstyle.css" />
@@ -21,7 +16,7 @@
     <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
         <a class="pure-menu-heading" href="">Home</a>
         <ul>
-						<li><a href="#">Compare</a></li>
+						<li><a href="#nav1">Compare</a></li>
             <li><a href="dealerlog.php">Dealer</a></li>
             <li><a href="#">Admin</a></li>
         </ul>
@@ -36,7 +31,7 @@
 			</div>
 		</div>
 		<!-- end of splash -->
-	<div class="content-wrapper">
+	<div id="nav1" class="content-wrapper">
 		<!-- form -->
 		<div class="content">
 			<div class="pure-g">

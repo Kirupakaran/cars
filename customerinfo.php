@@ -1,4 +1,4 @@
-<?php 
+<?php
 require('includes/connection.inc.php');
 session_start();
 // if session variable not set, redirect to login page
@@ -40,21 +40,29 @@ if(empty($customerDetails)) {
 	echo "<p id='empty'>Sorry, Nothing here.</p>";
 }
 else {?>
-	<table id="customers">
-		<tr>
-			<th>Name</th>
-			<th>Mail</th>
-			<th>Phone</th>
-			<th>Car</th>
-		</tr
-		<?php
-		foreach ($customerDetails as $customer) {?>
-			<tr>
-				<td><?php echo $customer['Name']; ?></td>
-				<td><?php echo $customer['Mail']; ?></td>
-				<td><?php echo $customer['Phone']; ?></td>
-				<td><?php echo $customer['Car']; ?></td>
-			</tr>
-		<?php } ?>
+	<table class="pure-table pure-table-striped" id="customers">
+    <tbody>
+  		<?php
+  		foreach ($customerDetails as $customer) {?>
+  			<tr>
+  				<td>
+            <div class="pure-g">
+              <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+                <p class="custName"><?php echo $customer['Name']; ?></p>
+              </div>
+              <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+  				      <p><?php echo $customer['Mail']; ?></p>
+              </div>
+              <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+  				      <p><?php echo $customer['Phone']; ?></p>
+              </div>
+              <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+  				      <p><?php echo $customer['Car']; ?></p>
+              </div>
+            </div>
+          </td>
+  			</tr>
+  		<?php } ?>
+    </tbody>
 	</table>
 <?php } ?>

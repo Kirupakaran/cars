@@ -49,7 +49,6 @@ label {
 
 /*
 * -- MENU STYLES --
-* I want to customize how my .pure-menu looks at the top of the page
 */
 
 .home-menu {
@@ -58,41 +57,7 @@ label {
   box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
 }
 .home-menu.pure-menu-open {
-  background: rgba(15, 53, 161, 0.8)/* #3b5998*/;
-}
-
-
-
-#compare{
-  text-align: center;
-  font-weight: 400;
-  position:fixed;
-  bottom:10px;
-  right:-500px;
-  z-index: 5;
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid transparent;
-
-  border-left: 7px solid rgba(71, 91, 237, 0.8);
-  border-top-left-radius:10px;
-  border-bottom-left-radius:15px;
-  font-family: Arial;
-  font-weight: bold;
-  text-decoration: inherit;
-  padding: 8px 30px 8px 12px;
-  text-shadow: 1px 1px 4px #000;
-  -webkit-box-shadow: inset 1px 1px 0px 0px #cae3fc;
-  -moz-box-shadow: inset 1px 1px 0px 0px #cae3fc;
-  box-shadow: inset 1px 1px 0px 0px #cae3fc;
-  cursor: pointer;
-  color: #ffffff;
-  background: -webkit-linear-gradient(90deg, rgba(65, 131, 238, 0.5) 5%, rgba(121, 187, 255, 0.5) 100%);
-  background: -moz-linear-gradient(90deg, rgba(65, 131, 238, 0.5) 5%, rgba(121, 187, 255, 0.5) 100%);
-  background: -ms-linear-gradient(90deg, rgba(65, 131, 238, 0.5) 5%, rgba(121, 187, 255, 0.5) 100%);
-  background: linear-gradient(180deg, rgba(121, 187, 255, 0.5) 5%,rgba(65, 131, 238, 0.5) 100%);
-  opacity:0.1;
-  display:none;
-
+  background: rgba(15, 53, 161, 0.8);
 }
 
 .pure-menu.pure-menu-open.pure-menu-fixed {
@@ -229,6 +194,38 @@ label {
   margin-left: 0;
 }
 
+#compare{
+  text-align: center;
+  font-weight: 400;
+  position:fixed;
+  bottom:10px;
+  right:-500px;
+  z-index: 5;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+
+  border-left: 7px solid rgba(71, 91, 237, 0.8);
+  border-top-left-radius:10px;
+  border-bottom-left-radius:15px;
+  font-family: Arial;
+  font-weight: bold;
+  text-decoration: inherit;
+  padding: 8px 30px 8px 12px;
+  text-shadow: 1px 1px 4px #000;
+  -webkit-box-shadow: inset 1px 1px 0px 0px #cae3fc;
+  -moz-box-shadow: inset 1px 1px 0px 0px #cae3fc;
+  box-shadow: inset 1px 1px 0px 0px #cae3fc;
+  cursor: pointer;
+  color: #ffffff;
+  background: -webkit-linear-gradient(90deg, rgba(65, 131, 238, 0.5) 5%, rgba(121, 187, 255, 0.5) 100%);
+  background: -moz-linear-gradient(90deg, rgba(65, 131, 238, 0.5) 5%, rgba(121, 187, 255, 0.5) 100%);
+  background: -ms-linear-gradient(90deg, rgba(65, 131, 238, 0.5) 5%, rgba(121, 187, 255, 0.5) 100%);
+  background: linear-gradient(180deg, rgba(121, 187, 255, 0.5) 5%,rgba(65, 131, 238, 0.5) 100%);
+  opacity:0.1;
+  display:none;
+
+}
+
 .price {
   color: white;
   font-size: 1.1em;
@@ -296,11 +293,6 @@ label {
     float: right;
   }
 
-  /* We increase the height of the splash-container */
-  /*    .splash-container {
-  height: 500px;
-  }*/
-
   /* We decrease the width of the .splash, since we have more width
   to work with */
   .splash {
@@ -354,8 +346,6 @@ label {
 }
 /*
 * -- DESKTOP (AND UP) MEDIA QUERIES --
-* On desktops and other large devices, we want to over-ride some
-* of the mobile and tablet styles.
 */
 @media (min-width: 78em) {
   /* We increase the header font size even more */

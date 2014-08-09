@@ -1,5 +1,5 @@
 <?php
-function logout($redirect) { 
+function logout($redirect) {
 	// script for logout button
 	if (isset($_POST['logout'])) {
 		// empty session array
@@ -16,5 +16,5 @@ function logout($redirect) {
 ?>
 
 <form id="logoutForm" method="post" action="">
-<input name="logout" type="submit" id="logout" value="log out">
+<input class="pure-button pure-button-primary button-success" name="logout" type="submit" id="logout" value="log out">
 </form>
