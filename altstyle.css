@@ -100,23 +100,20 @@ label {
 * -- SPLASH STYLES --
 * This is the blue top section that appears on the page.
 */
-
-.image-container, .splash-container {
-  z-index: 2;
-  overflow: hidden;
-  /* The following styles are required for the "scroll-over" effect */
-  width: 100%;
-  height: 93%;
-  top: 0;
-  left: 0;
-  position: fixed !important;
+.splash-container {
+    background: #1f8dd6 url(images/car4.jpg);
+    background-size: cover;
+    z-index: 1;
+    overflow: hidden;
+    /* The following styles are required for the "scroll-over" effect */
+    width: 100%;
+    height: 93%;
+    top: 0;
+    left: 0;
+    position: fixed !important;
 }
 
-.image-container {
-  background: #1f8dd6 url(../images/car4.jpg);
-  background-size: cover;
-  z-index: 1;
-}
+
 
 .splash {
   /* absolute center .splash within .splash-container */
@@ -136,6 +133,7 @@ label {
   font-weight: bold;
   color: white;
   padding: 1em 0 0.2em 0;
+  font-weight: 100;
   line-height: 1em;
 }
 

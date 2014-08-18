@@ -1,34 +1,39 @@
 $(window).load(function() {
-      var w = $( window ).width();
-    var h = $( window ).height();
-    if(w>600){
-    w=w*15/100;
-	 $( "#main" ).css({ "left" : w + "px" });
-}
-    if(h>600){
-    h=h*15/100;
-
-    $( "#main" ).css({ "top" : h + "px" });
-	}
+	var i =0;
+	var images = ['car2.jpg','car.jpg','car4.jpg','bg2.jpg'];
+	var image = $('.image-container');
+                //Initial Background image setup
+	image.css('background', 'url(images/car4.jpg)');
+	image.css('background-repeat', 'no-repeat');
+	image.css('background-size', 'cover');
+	image.css('position', 'fixed !important');
+	image.css('overflow', 'hidden');
+	image.css('z-index', '1');
+	image.css('top', '0');
+	image.css('left', '0');
+	image.css('width', '100%');
+	image.css('height', '93%');
+                //Change image at regular intervals
+	setInterval(function(){
+		image.fadeOut(1000, function () {
+			image.css('background', 'url(images/' + images [i++] +')');
+			image.css('background-repeat', 'no-repeat');
+			image.css('background-size', 'cover');
+			image.css('position', 'fixed !important');
+			image.css('overflow', 'hidden');
+			image.css('z-index', '1');
+			image.css('top', '0');
+			image.css('left', '0');
+			image.css('width', '100%');
+			image.css('height', '93%');
+			image.fadeIn(1000);
+		});
+		if(i == images.length)
+		i = 0;
+	}, 10000);
 });
 
-$(window).resize(function() {
-    var w = $( window ).width();
-    var h = $( window ).height();
-     if(w>600){
-		w=w*15/100;
-		$( "#main" ).css({ "left" : w + "px" });
-	}
-	else
-	{
-		$(".maindiv").css({ "background-attachment" : "local"});
-	}
-    if(h>600){
-    h=h*15/100;
 
-    $( "#main" ).css({ "top" : h + "px" });
-	}
-});
 
 $(document).ready(function() {
 	$('#petrolvsdiesel').submit(function(e) {
@@ -102,25 +107,3 @@ jQuery('#compare').animate({right: -20,opacity: 1}, 'fast'); //lowers the div cl
            }
       );
 });
-
-
-/*
-// Dealer login popup
-$(document).ready(function() {
-	$("#dealerlogin").click(function() {
-		dealer = $("#dealerlogindiv");
-		dealer.css('float', 'right');
-		dealer.css('background', 'rgba(26, 6, 51, 0.67)');
-		dealer.css('padding', '25px');
-		$.ajax({
-			data: $(this).serialize(),
-			type: "post",
-			url: "http://localhost/pdc/dealerlog.php",
-			success: function(response) {
-				$(dealer).html(response);
-				$("#dealerlogin").fadeOut(0);
-			}
-		});
-	});
-});
-*/

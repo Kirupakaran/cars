@@ -10,6 +10,18 @@
 		<script src="js/jquery.min.js"></script>
 		<script src="js/script.js"></script>
 		<script src="js/jquery.magnific-popup.min.js"></script>
+		<script>
+			$("#list").click( function(){
+				$.ajax({
+				type: "get",
+				url: "http://localhost/pdc/list.php",
+				success: function(response) {
+					$('#unorder').html(response);
+				}
+			});
+			return false;
+		});
+	</script>
 	</head>
 	<body>
 	<div class="header">
@@ -17,6 +29,7 @@
         <a class="pure-menu-heading" href="">Home</a>
         <ul>
 						<li><a href="#nav1">Compare</a></li>
+						<li><a href="./list.php">Car List</a></li>
             <li><a href="dealerlog.php">Dealer</a></li>
             <li><a href="#">Admin</a></li>
         </ul>
@@ -24,6 +37,7 @@
 	</div>
 
 		<!-- start of splash page -->
+		<div class="image-container"></div>
 		<div class="splash-container">
 			<div class="splash">
 					<h1 class="splash-head">Petrol vs Diesel Cars</h1>
