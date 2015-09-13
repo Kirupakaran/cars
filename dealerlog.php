@@ -1,5 +1,6 @@
 <?php
 require('includes/connection.inc.php');
+// dealer login page
 $dbc = dbconnect('root','');
 $stmt = $dbc->stmt_init();
 if(isset($_POST['submit']))

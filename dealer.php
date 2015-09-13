@@ -1,5 +1,6 @@
 <?php
 session_start();
+// Dealer page. dealer can view customer details
 // if session variable not set, redirect to login page
 if (!isset($_SESSION['authenticated'])) {
   header('Location: http://localhost/pdc/dealerlog.php');

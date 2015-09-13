@@ -1,6 +1,7 @@
 <?php
 require('includes/connection.inc.php');
 session_start();
+// This page is for posting customer details
 // if session variable not set, redirect to login page
 if (!isset($_SESSION['authenticated'])) {
   header('Location: http://localhost/pdc/dealerlog.php');
